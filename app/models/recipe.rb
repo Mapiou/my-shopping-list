@@ -1,4 +1,7 @@
 class Recipe < ApplicationRecord
+  has_many :doses
+  has_many :ingredients, through: :doses
+
   validates :name, :photo, presence: true
   validates :cooking_time,
             numericality: { only_integer: true, greater_than: 0 }
