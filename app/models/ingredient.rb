@@ -3,5 +3,11 @@ class Ingredient < ApplicationRecord
 
   validates :name, presence: true
   validates :section,
-            inclusion: { in: ["Maraîcher", "Boucherie", "Poissonnerie", "Epicerie"] }
+            inclusion: { in: [
+              "Maraîcher",
+              "Boucherie",
+              "Poissonnerie",
+              "Fromagerie",
+              "Epicerie"
+            ] }
 end
