@@ -1,0 +1,37 @@
+<h1>Ajouter une nouvelle recette</h1>
+
+<p><%= link_to "Revenir à l'accueil", root_path %></p>
+
+<%= simple_form_for(@recipe) do |f| %>
+  <%=
+    f.input :name,
+    label: 'Titre'
+  %>
+  <%=
+    f.input :photo,
+    label: 'Image'
+  %>
+  <%=
+    f.input :cooking_time,
+    label: 'Temps de préparation (en minutes)',
+    input_html: { min: 0 }
+  %>
+  <%=
+    f.input :week_nb,
+    label: 'Numéro de semaine',
+    collection: 1..53
+  %>
+  <%=
+    f.input :season,
+    label: 'Saison',
+    collection: Recipe::SEASONS,
+    as: :radio_buttons
+  %>
+  <%=
+    f.input :category,
+    label: 'Catégorie',
+    collection: Recipe::CATEGORIES,
+    as: :radio_buttons
+  %>
+  <%= f.submit 'Ajouter' %>
+<% end %>

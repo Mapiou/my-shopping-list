@@ -1,0 +1,21 @@
+<h1>Liste des recettes</h1>
+
+<p><%= link_to "Revenir à l'accueil", root_path %></p>
+
+<div>
+  <% @recipes.each do |recipe| %>
+    <div>
+      <p><%= recipe.name %></p>
+      <p><%= recipe.photo %></p>
+      <p><%= recipe.cooking_time %></p>
+      <p><%= recipe.week_nb %></p>
+      <p><%= recipe.season %></p>
+      <p><%= recipe.category %></p>
+    </div>
+    <div>
+      <% recipe.ingredients.each do |ingredient| %>
+        <p><%= ingredient.name %> (<%= ingredient.section %>)</p>
+      <% end %>
+    </div>
+  <% end %>
+</div>

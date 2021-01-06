@@ -1,4 +1,7 @@
 class Recipe < ApplicationRecord
+  SEASONS = ['Hiver', 'Printemps', 'Eté', 'Automne']
+  CATEGORIES = ['Végétarien', 'Poisson', 'Viande']
+
   has_many :doses
   has_many :ingredients, through: :doses
 
@@ -8,6 +11,6 @@ class Recipe < ApplicationRecord
   validates :week_nb,
             numericality: { only_integer: true },
             inclusion: { in: 1..53 }
-  validates :season, inclusion: { in: ["Hiver", "Printemps", "Eté", "Automne"] }
-  validates :category, inclusion: { in: ["Végétarien", "Poisson", "Viande"] }
+  validates :season, inclusion: { in: SEASONS }
+  validates :category, inclusion: { in: CATEGORIES }
 end
