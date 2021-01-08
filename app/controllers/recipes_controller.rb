@@ -1,4 +1,6 @@
 class RecipesController < ApplicationController
+  before_action :set_recipe, only: %i[show edit update destroy]
+
   def index
     @recipes = Recipe.all
   end
@@ -16,7 +18,31 @@ class RecipesController < ApplicationController
     end
   end
 
+  def show
+  end
+
+  def edit
+  end
+
+  def update
+    if @recipe.update(recipe_params)
+      redirect_to recipes_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @recipe.destroy
+
+    redirect_to recipes_path
+  end
+
   private
+
+  def set_recipe
+    @recipe = Recipe.find(params[:id])
+  end
 
   def recipe_params
     params.require(:recipe).permit(:name, :photo, :cooking_time, :week_nb, :season, :category)
