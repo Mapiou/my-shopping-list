@@ -2,7 +2,7 @@ class Recipe < ApplicationRecord
   SEASONS = ['Hiver', 'Printemps', 'Eté', 'Automne']
   CATEGORIES = ['Végétarien', 'Poisson', 'Viande']
 
-  has_many :doses
+  has_many :doses, dependent: :destroy
   has_many :ingredients, through: :doses
 
   validates :name, :photo, presence: true

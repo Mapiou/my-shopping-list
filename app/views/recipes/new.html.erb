@@ -1,7 +1,9 @@
 <div class="container">
   <h1>Ajouter une nouvelle recette</h1>
 
-  <p><%= link_to "Revenir à l'accueil", root_path %></p>
+  <div>
+    <%= link_to "Revenir à la liste des recettes", recipes_path %>
+  </div>
 
-  <%= render 'form', recipe: @recipe %>
+  <%= render "form", recipe: @recipe %>
 </div>

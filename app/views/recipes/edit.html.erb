@@ -1,7 +1,13 @@
 <div class="container">
   <h1>Modifier la recette</h1>
 
-  <p><%= link_to "Revenir à la liste des recettes", recipes_path %></p>
+  <div>
+    <%= link_to "Revenir à la recette", recipe_path(@recipe) %>
+  </div>
 
-  <%= render 'form', recipe: @recipe %>
+  <div>
+    <%= link_to "Revenir à la liste des recettes", recipes_path %>
+  </div>
+
+  <%= render "form", recipe: @recipe %>
 </div>
