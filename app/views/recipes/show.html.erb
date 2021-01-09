@@ -1,0 +1,63 @@
+<div class="container">
+  <h1>Liste des recettes</h1>
+
+  <div>
+    <%= link_to "Revenir à la liste des recettes", recipes_path %>
+  </div>
+
+  <div>
+    <div>
+      <p><%= @recipe.name %></p>
+      <p><%= @recipe.photo %></p>
+      <p><%= @recipe.cooking_time %></p>
+      <p><%= @recipe.week_nb %></p>
+      <p><%= @recipe.season %></p>
+      <p><%= @recipe.category %></p>
+    </div>
+    <div>
+      <% @recipe.doses.each do |dose| %>
+        <div>
+          <%= dose.ingredient.name %>
+          <%= dose.quantity %>
+          <%= dose.unit %>
+          <%= link_to "Supprimer",
+                      dose_path(dose),
+                      method: :delete,
+                      data: { confirm: "Etes-vous sûr ?" }
+          %>
+        </div>
+      <% end %>
+    </div>
+
+    <div>
+      <%= simple_form_for [@recipe, @dose] do |f| %>
+        <%=
+          f.association :ingredient,
+          label: "Ingrédient"
+        %>
+        <%=
+          f.input :quantity,
+          label: "Quantité",
+          input_html: { min: 0 }
+        %>
+        <%=
+          f.input :unit,
+          label: "Unité",
+          collection: Dose::UNITS
+        %>
+        <%= f.submit "Ajouter" %>
+      <% end %>
+    </div>
+
+    <div>
+      <%= link_to "Modifier la recette", edit_recipe_path(@recipe) %>
+    </div>
+    <div>
+      <%= link_to "Supprimer la recette",
+                  recipe_path(@recipe),
+                  method: :delete,
+                  data: { confirm: "Etes-vous sûr de vouloir supprimer la recette #{@recipe.name}?" }
+      %>
+    </div>
+  </div>
+</div>
