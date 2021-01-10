@@ -4,18 +4,20 @@ Rails.application.routes.draw do
 
   resources :recipes do
     resources :doses, only: [:create]
+    resources :shopping_lists, only: [:create]
   end
   resources :doses, only: [:destroy]
 
-  # get     'recipes',          to: 'recipes#index'
+  resources :shopping_lists, only: [:index]
 
-  # get     'recipes/new',      to: 'recipes#new',    as: :new_recipe
-  # post    'recipes',          to: 'recipes#create'
+  # get     'recipes',                  to: 'recipes#index'
+  # get     'recipes/new',              to: 'recipes#new',      as: :new_recipe
+  # post    'recipes',                  to: 'recipes#create'
+  # get     'recipes/:id',              to: 'recipes#show',     as: :recipe
+  # get     'recipes/:id/edit',         to: 'recipes#edit',     as: :edit_recipe
+  # patch   'recipes/:id',              to: 'recipes#update'
+  # delete  'recipes/:id',              to: 'recipes#destroy'
 
-  # get     'recipes/:id',      to: 'recipes#show',   as: :recipe
-
-  # get     'recipes/:id/edit', to: 'recipes#edit',   as: :edit_recipe
-  # patch   'recipes/:id',      to: 'recipes#update'
-
-  # delete  'recipes/:id',      to: 'recipes#destroy'
+  # post    'recipes/:recipe_id/doses', to: 'doses#create',     as: :recipe_doses
+  # delete  'doses/:id',                to: 'doses#destroy'
 end

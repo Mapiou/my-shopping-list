@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 puts "########## Cleaning database... ##########"
-Dose.destroy_all
 ShoppingList.destroy_all
+Dose.destroy_all
 Recipe.destroy_all
 Ingredient.destroy_all
 puts "########## Database cleaned! ##########"
