@@ -36,6 +36,12 @@
                     data: { confirm: "Etes-vous sûr de vouloir supprimer la recette #{recipe.name}?" }
         %>
       </div>
+      <div>
+        <%= link_to "Ajouter la recette à ma liste de courses",
+                    recipe_shopping_lists_path(recipe),
+                    method: :post
+        %>
+      </div>
     <% end %>
   </div>
 </div>
