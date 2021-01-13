@@ -4,9 +4,9 @@ class DosesController < ApplicationController
     @dose = Dose.new(dose_params)
     @dose.recipe = @recipe
     if @dose.save
-      redirect_to recipe_path(@dose.recipe)
+      redirect_to recipe_path(@recipe)
     else
-      render "recipes/show"
+      render 'recipes/show'
     end
   end
 
