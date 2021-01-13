@@ -1,3 +1,3 @@
 class ShoppingList < ApplicationRecord
-  belongs_to :dose
+  belongs_to :recipe
 end
