@@ -4,9 +4,7 @@ class ShoppingListsController < ApplicationController
   end
 
   def create
-    @recipe = Recipe.find(params[:recipe_id])
-    @recipe.doses.each do |dose|
-      ShoppingList.create(dose_id: dose.id)
-    end
+    ShoppingList.create(recipe_id: params[:recipe_id])
+    redirect_to recipes_path
   end
 end

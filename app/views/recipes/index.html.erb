@@ -42,6 +42,9 @@
                     method: :post
         %>
       </div>
+      <div>
+        <p>Compteur : <%= @selected_recipes_count[recipe.id] ||= 0 %></p>
+      </div>
     <% end %>
   </div>
 </div>
