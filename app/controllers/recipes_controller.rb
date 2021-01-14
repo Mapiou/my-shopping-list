@@ -3,15 +3,7 @@ class RecipesController < ApplicationController
 
   def index
     @recipes = Recipe.all
-
-    @selected_recipes_count = {}
-    ShoppingList.all.each do |item|
-      if @selected_recipes_count.key?(item.recipe_id)
-        @selected_recipes_count[item.recipe_id] += 1
-      else
-        @selected_recipes_count[item.recipe_id] = 1
-      end
-    end
+    @shopping_lists = ShoppingList.all.map { |item| [item.recipe_id, item.quantity] }.to_h
   end
 
   def new

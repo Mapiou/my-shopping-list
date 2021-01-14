@@ -8,7 +8,7 @@
   <div>
     <% @shopping_lists.each do |item| %>
       <div>
-        <%= item.recipe_id %>
+        <%= item.recipe.name %> (x<%= item.quantity %>)
       </div>
     <% end %>
   </div>
