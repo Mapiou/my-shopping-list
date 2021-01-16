@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :recipes do
     resources :doses, only: [:create]
-    resources :shopping_lists, only: [:create]
+    resources :shopping_lists, only: [:create, :update]
   end
   resources :doses, only: [:destroy]
 
@@ -17,7 +17,4 @@ Rails.application.routes.draw do
   # get     'recipes/:id/edit',         to: 'recipes#edit',     as: :edit_recipe
   # patch   'recipes/:id',              to: 'recipes#update'
   # delete  'recipes/:id',              to: 'recipes#destroy'
-
-  # post    'recipes/:recipe_id/doses', to: 'doses#create',     as: :recipe_doses
-  # delete  'doses/:id',                to: 'doses#destroy'
 end
