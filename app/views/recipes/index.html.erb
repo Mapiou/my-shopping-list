@@ -37,13 +37,15 @@
         %>
       </div>
       <div>
-        <%= link_to "Ajouter la recette à ma liste de courses",
+        <%= link_to "-",
+                    recipe_shopping_list_path(recipe, 0),
+                    method: :patch
+        %>
+        <%= @shopping_lists[recipe.id] ||= 0 %>
+        <%= link_to "+",
                     recipe_shopping_lists_path(recipe),
                     method: :post
         %>
-      </div>
-      <div>
-        <p>Compteur : <%= @shopping_lists[recipe.id] ||= 0 %></p>
       </div>
     <% end %>
   </div>
