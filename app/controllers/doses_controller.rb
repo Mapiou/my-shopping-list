@@ -4,7 +4,7 @@ class DosesController < ApplicationController
     @dose = Dose.new(dose_params)
     @dose.recipe = @recipe
     if @dose.save
-      redirect_to recipe_path(@recipe)
+      redirect_to recipe_path(@recipe, anchor: "dose-#{@dose.id}")
     else
       render 'recipes/show'
     end
@@ -14,7 +14,7 @@ class DosesController < ApplicationController
     @dose = Dose.find(params[:id])
     @dose.destroy
 
-    redirect_to recipe_path(@dose.recipe)
+    redirect_to recipe_path(@dose.recipe, anchor: "doses")
   end
 
   private

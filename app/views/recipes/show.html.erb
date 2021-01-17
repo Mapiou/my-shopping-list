@@ -14,23 +14,23 @@
       <p><%= @recipe.season %></p>
       <p><%= @recipe.category %></p>
     </div>
-    <div>
+    <div id="doses">
       <% @recipe.doses.each do |dose| %>
-        <div>
+        <div id="dose-<%= dose.id %>">
           <%= dose.ingredient.name %>
           <%= dose.quantity %>
           <%= dose.unit %>
           <%= link_to "Supprimer",
                       dose_path(dose),
                       method: :delete,
-                      data: { confirm: "Etes-vous sûr ?" }
+                      remote: true
           %>
         </div>
       <% end %>
     </div>
 
     <div>
-      <%= simple_form_for [@recipe, @dose] do |f| %>
+      <%= simple_form_for([@recipe, @dose], remote: true) do |f| %>
         <%=
           f.association :ingredient,
           label: "Ingrédient"

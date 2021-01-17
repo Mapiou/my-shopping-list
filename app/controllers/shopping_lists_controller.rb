@@ -14,7 +14,7 @@ class ShoppingListsController < ApplicationController
       @item.update(quantity: @item.quantity + 1)
     end
 
-    redirect_to recipes_path
+    redirect_to recipes_path(anchor: "recipe-#{@recipe.id}")
   end
 
   def update
@@ -25,7 +25,7 @@ class ShoppingListsController < ApplicationController
     @item.update(quantity: @item.quantity - 1) if @item.quantity.positive?
     @item.destroy if @item.quantity.zero?
 
-    redirect_to recipes_path
+    redirect_to recipes_path(anchor: "recipe-#{@recipe.id}")
   end
 
   private

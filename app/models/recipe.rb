@@ -4,7 +4,7 @@ class Recipe < ApplicationRecord
 
   has_many :doses, dependent: :destroy
   has_many :ingredients, through: :doses
-  has_many :shopping_lists
+  has_many :shopping_lists, dependent: :destroy
 
   validates :name, :photo, presence: true
   validates :cooking_time,
