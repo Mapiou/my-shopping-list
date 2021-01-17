@@ -10,7 +10,7 @@
 
   <div>
     <% @recipes.each do |recipe| %>
-      <div>
+      <div id="recipe-<%= recipe.id %>">
         <p><%= recipe.name %></p>
         <p><%= recipe.photo %></p>
         <p><%= recipe.cooking_time %></p>
@@ -33,18 +33,21 @@
         <%= link_to "Supprimer la recette",
                     recipe_path(recipe),
                     method: :delete,
+                    remote: true,
                     data: { confirm: "Etes-vous sûr de vouloir supprimer la recette #{recipe.name}?" }
         %>
       </div>
       <div>
         <%= link_to "-",
                     recipe_shopping_list_path(recipe, 0),
-                    method: :patch
+                    method: :patch,
+                    remote: true
         %>
         <%= @shopping_lists[recipe.id] ||= 0 %>
         <%= link_to "+",
                     recipe_shopping_lists_path(recipe),
-                    method: :post
+                    method: :post,
+                    remote: true
         %>
       </div>
     <% end %>
