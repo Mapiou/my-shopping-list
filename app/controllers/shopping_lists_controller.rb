@@ -3,6 +3,18 @@ class ShoppingListsController < ApplicationController
 
   def index
     @shopping_lists = ShoppingList.all
+    @doses = {}
+    @shopping_lists.each do |item|
+      item.recipe.doses.each do |dose|
+        if @doses.key?(dose.ingredient_id) && @doses[dose.ingredient_id][:unit] == dose.unit
+          @doses[dose.ingredient_id][:quantity] += dose.quantity
+        else
+          @doses[dose.ingredient_id] = { name: dose.ingredient.name,
+                                         quantity: dose.quantity,
+                                         unit: dose.unit }
+        end
+      end
+    end
   end
 
   def create

@@ -1,5 +1,5 @@
 class Ingredient < ApplicationRecord
-  SECTIONS = ['Maraîcher', 'Boucherie', 'Poissonnerie', 'Fromagerie', 'Epicerie']
+  SECTIONS = ['Maraîcher', 'Boucherie', 'Poissonnerie', 'Fromagerie', 'Epicerie', 'Boulangerie']
 
   has_many :doses
 
