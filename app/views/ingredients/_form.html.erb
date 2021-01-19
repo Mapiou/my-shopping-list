@@ -1,0 +1,12 @@
+<%= simple_form_for(@ingredient) do |f| %>
+  <%=
+    f.input :name,
+    label: "Nom"
+  %>
+  <%=
+    f.input :section,
+    label: "Section",
+    collection: Ingredient::SECTIONS
+  %>
+  <%= f.submit "#{@ingredient.new_record? ? 'Ajouter' : 'Modifier'}" %>
+<% end %>

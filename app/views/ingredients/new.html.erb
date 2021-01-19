@@ -1,0 +1,9 @@
+<div class="container">
+  <h1>Ajouter un nouvel ingrédient</h1>
+
+  <div>
+    <%= link_to "Revenir à la liste des ingrédients", ingredients_path %>
+  </div>
+
+  <%= render "form", ingredient: @ingredient %>
+</div>

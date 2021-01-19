@@ -1,0 +1,20 @@
+<div class="container">
+  <h1>Liste des ingrédients</h1>
+
+  <div>
+    <%= link_to "Revenir à l'accueil", root_path %>
+  </div>
+  <div>
+    <%= link_to "Ajouter un nouvel ingrédient", new_ingredient_path %>
+  </div>
+
+  <div>
+    <% @ingredients.each do |ingredient| %>
+      <div>
+        <%= ingredient.name %>
+        (<%= ingredient.section %>)
+        <%= link_to "Modifier", edit_ingredient_path(ingredient) %>
+      </div>
+    <% end %>
+  </div>
+</div>

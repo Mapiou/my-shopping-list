@@ -2,10 +2,13 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: 'pages#home'
 
+  resources :ingredients, except: [:show, :destroy]
+
   resources :recipes do
     resources :doses, only: [:create]
     resources :shopping_lists, only: [:create, :update]
   end
+
   resources :doses, only: [:destroy]
 
   resources :shopping_lists, only: [:index]

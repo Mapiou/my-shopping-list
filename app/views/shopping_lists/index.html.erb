@@ -9,7 +9,7 @@
     <div>Mes recettes sélectionnées</div>
     <% @shopping_lists.each do |item| %>
       <div>
-        <%= item.recipe.name %> (x<%= item.quantity %>)
+        <%= "#{item.recipe.name} (x#{item.quantity})" %>
       </div>
     <% end %>
   </div>
@@ -21,7 +21,7 @@
         <div><%= section %></div>
         <% doses.each do |id, ingredient| %>
           <div>
-            <%= ingredient[:name] %> (<%= ingredient[:quantity] %> <%= ingredient[:unit] %>)
+            <%= "#{ingredient[:name]} (#{format_quantity(ingredient[:quantity])} #{ingredient[:unit]})" %>
           </div>
         <% end %>
       <% end %>

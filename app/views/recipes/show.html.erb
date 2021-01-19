@@ -18,7 +18,7 @@
       <% @recipe.doses.each do |dose| %>
         <div id="dose-<%= dose.id %>">
           <%= dose.ingredient.name %>
-          <%= dose.quantity %>
+          <%= format_quantity(dose.quantity) %>
           <%= dose.unit %>
           <%= link_to "Supprimer",
                       dose_path(dose),
