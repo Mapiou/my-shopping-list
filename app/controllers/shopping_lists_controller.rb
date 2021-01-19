@@ -7,10 +7,10 @@ class ShoppingListsController < ApplicationController
     @shopping_lists.each do |item|
       item.recipe.doses.each do |dose|
         if @doses.key?(dose.ingredient_id) && @doses[dose.ingredient_id][:unit] == dose.unit
-          @doses[dose.ingredient_id][:quantity] += dose.quantity
+          @doses[dose.ingredient_id][:quantity] += dose.quantity * item.quantity
         else
           @doses[dose.ingredient_id] = { name: dose.ingredient.name,
-                                         quantity: dose.quantity,
+                                         quantity: dose.quantity * item.quantity,
                                          unit: dose.unit }
         end
       end
