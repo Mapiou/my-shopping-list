@@ -3,15 +3,21 @@ class ShoppingListsController < ApplicationController
 
   def index
     @shopping_lists = ShoppingList.all
-    @doses = {}
+    @ingredients = Ingredient::SECTIONS.map { |section| [section, {}] }.to_h
+
     @shopping_lists.each do |item|
       item.recipe.doses.each do |dose|
-        if @doses.key?(dose.ingredient_id) && @doses[dose.ingredient_id][:unit] == dose.unit
-          @doses[dose.ingredient_id][:quantity] += dose.quantity * item.quantity
+        ingredient_id = dose.ingredient_id
+        quantity = dose.quantity * item.quantity
+        unit = dose.unit
+        section = dose.ingredient.section
+
+        if @ingredients[section].key?(ingredient_id) && @ingredients[section][ingredient_id][:unit] == unit
+          @ingredients[section][ingredient_id][:quantity] += quantity
         else
-          @doses[dose.ingredient_id] = { name: dose.ingredient.name,
-                                         quantity: dose.quantity * item.quantity,
-                                         unit: dose.unit }
+          @ingredients[section][ingredient_id] = {  name: dose.ingredient.name,
+                                                    quantity: quantity,
+                                                    unit: unit }
         end
       end
     end

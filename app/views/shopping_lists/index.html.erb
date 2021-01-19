@@ -16,10 +16,15 @@
 
   <div>
     <div>Ma liste de courses</div>
-    <% @doses.each do |id, ingredient| %>
-      <div>
-        <%= ingredient[:quantity] %> <%= ingredient[:unit] %> <%= ingredient[:name] %>
-      </div>
+    <% @ingredients.each do |section, doses| %>
+      <% unless doses.empty? %>
+        <div><%= section %></div>
+        <% doses.each do |id, ingredient| %>
+          <div>
+            <%= ingredient[:name] %> (<%= ingredient[:quantity] %> <%= ingredient[:unit] %>)
+          </div>
+        <% end %>
+      <% end %>
     <% end %>
   </div>
 </div>
