@@ -1,14 +1,3 @@
-<div class="container">
-  <h1>My Shopping List</h1>
-  <div>
-    <%= link_to "Voir les ingrédients", ingredients_path %>
-  </div>
+<% content_for :title, "Accueil" %>
 
-  <div>
-    <%= link_to "Voir toutes les recettes", recipes_path %>
-  </div>
-
-  <div>
-    <%= link_to "Voir ma liste de courses", shopping_lists_path %>
-  </div>
-</div>
+<%= render 'components/banner' %>

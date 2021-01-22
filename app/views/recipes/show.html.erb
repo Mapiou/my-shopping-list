@@ -1,9 +1,7 @@
-<div class="container">
-  <h1>Liste des recettes</h1>
+<% content_for :title, "Recette" %>
 
-  <div>
-    <%= link_to "Revenir à la liste des recettes", recipes_path %>
-  </div>
+<div class="container">
+  <h1><%= @recipe.name %></h1>
 
   <div>
     <div>

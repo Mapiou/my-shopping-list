@@ -1,12 +1,21 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
-}
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
+  .navbar-collapse {
+    flex-grow: 0;
+  }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+  .navbar-brand img {
+    width: 40px;
+  }
+
+  .nav-item a:hover, .navbar-lewagon .nav-item a:active {
+    color: $raspberry !important;
+    background-color: transparent;
+  }
+
+  .dropdown-item {
+    color: rgba(0, 0, 0, 0.5);
+  }
 }
