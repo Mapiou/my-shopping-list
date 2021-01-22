@@ -1,12 +1,7 @@
+<% content_for :title, "Liste des recettes" %>
+
 <div class="container">
   <h1>Liste des recettes</h1>
-
-  <div>
-    <%= link_to "Revenir à l'accueil", root_path %>
-  </div>
-  <div>
-    <%= link_to "Ajouter une nouvelle recette", new_recipe_path %>
-  </div>
 
   <div>
     <% @recipes.each do |recipe| %>

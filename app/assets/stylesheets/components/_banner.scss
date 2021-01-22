@@ -1,0 +1,31 @@
+.Banner {
+  height: calc(100vh - 70px);
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), asset-url('banner.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0;
+
+  &__heading {
+    margin: 5vh 0 0 0;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    font-size: 32px;
+    font-weight: bold;
+  }
+
+  &__subheading {
+    font-size: 20px;
+    color: white;
+    opacity: .7;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  }
+
+  &__cta a {
+    margin: 16px 16px 0 0;
+    width: 100%;
+
+    @include media-breakpoint-up(sm) {
+      width: auto;
+    }
+  }
+}
