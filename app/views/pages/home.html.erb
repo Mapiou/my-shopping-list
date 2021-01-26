@@ -1,3 +1,31 @@
 <% content_for :title, "Accueil" %>
 
 <%= render 'components/banner' %>
+
+<div class="Home">
+  <div class="container py-5">
+      <div class="row align-items-center justify-content-center my-5">
+        <div class="col-12 col-md-6">
+          <h2 class="font-weight-bold">Crée tes recettes</h2>
+          <p>Tout d'abord, il te faut créer tes recettes en renseignant les ingrédients nécessaires et en les rangeant dans les bonnes catégories.</p>
+        </div>
+        <%= image_tag "create-recipe.jpg", class: "col-12 col-md-4" %>
+      </div>
+      <hr />
+      <div class="row align-items-center justify-content-center my-5">
+        <div class="col-12 col-md-6 order-md-last">
+          <h2 class="font-weight-bold">Sélectionne tes recettes</h2>
+          <p>Une fois tes recettes enregistrées, tu peux les sélectionner afin de les ajouter ou supprimer dans ta liste de courses.</p>
+        </div>
+        <%= image_tag "select-recipe.jpg", class: "col-12 col-md-4 order-md-first" %>
+      </div>
+      <hr />
+      <div class="row align-items-center justify-content-center my-5">
+        <div class="col-12 col-md-6">
+          <h2 class="font-weight-bold">Génère ta liste de courses</h2>
+          <p>Enfin, tu peux générer ta liste de courses par type de rayons à partir des recettes que tu auras sélectionnées.</p>
+        </div>
+        <%= image_tag "generate-list.jpg", class: "col-12 col-md-4" %>
+      </div>
+  </div>
+</div>
