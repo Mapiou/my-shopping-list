@@ -5,45 +5,79 @@
 
   <div>
     <% @recipes.each do |recipe| %>
-      <div id="recipe-<%= recipe.id %>">
-        <p><%= recipe.name %></p>
-        <p><%= recipe.photo %></p>
-        <p><%= recipe.cooking_time %></p>
-        <p><%= recipe.week_nb %></p>
-        <p><%= recipe.season %></p>
-        <p><%= recipe.category %></p>
-      </div>
-      <div>
-        <% recipe.ingredients.each do |ingredient| %>
-          <p><%= ingredient.name %> (<%= ingredient.section %>)</p>
-        <% end %>
-      </div>
-      <div>
-        <%= link_to "Modifier les ingrédients", recipe_path(recipe) %>
-      </div>
-      <div>
-        <%= link_to "Modifier la recette", edit_recipe_path(recipe) %>
-      </div>
-      <div>
-        <%= link_to "Supprimer la recette",
-                    recipe_path(recipe),
-                    method: :delete,
-                    remote: true,
-                    data: { confirm: "Etes-vous sûr de vouloir supprimer la recette #{recipe.name}?" }
-        %>
-      </div>
-      <div>
-        <%= link_to "-",
-                    recipe_shopping_list_path(recipe, 0),
-                    method: :patch,
-                    remote: true
-        %>
-        <%= @shopping_lists[recipe.id] ||= 0 %>
-        <%= link_to "+",
-                    recipe_shopping_lists_path(recipe),
-                    method: :post,
-                    remote: true
-        %>
+      <div class="card text-center m-3" id="recipe-<%= recipe.id %>" style="width: 18rem;">
+        <%= image_tag "#{recipe.photo}", class: "card-img-top" %>
+        <div class="card-body">
+          <h5 class="card-title"><%= recipe.name %></h5>
+          <div class="card-text">
+            <span class="badge badge-danger text-white"><%= recipe.season %></span>
+            <span class="badge badge-warning text-white"><%= recipe.category %></span>
+            <span class="badge badge-info text-white"><%= recipe.cooking_time %> minutes</span>
+
+            <!-- Button trigger modal -->
+            <%= link_to "...",
+                        "#",
+                        class: "badge badge-secondary",
+                        data: { toggle: "modal", target: "#exampleModalCenter" }
+            %>
+
+            <!-- Modal -->
+            <div class="modal text-left fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Liste des ingrédients</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <ul class="list-unstyled">
+                      <% recipe.ingredients.each do |ingredient| %>
+                        <li><%= ingredient.name %></li>
+                      <% end %>
+                    </ul>
+                  </div>
+                  <div class="modal-footer">
+                    <%= link_to "Modifier",
+                                recipe_path(recipe),
+                                class: "btn btn-warning btn-block text-white"
+                    %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr />
+          <div>
+            <%= link_to "-",
+                        recipe_shopping_list_path(recipe, 0),
+                        class: "btn btn-primary font-weight-bold text-white px-4",
+                        method: :patch,
+                        remote: true
+            %>
+            <span class="px-3"><%= @shopping_lists[recipe.id] ||= 0 %></span>
+            <%= link_to "+",
+                        recipe_shopping_lists_path(recipe),
+                        class: "btn btn-primary font-weight-bold text-white px-4",
+                        method: :post,
+                        remote: true
+            %>
+          </div>
+        </div>
+        <div class="text-right mr-3 mb-2">
+          <%= link_to edit_recipe_path(recipe), class: "text-black-50" do %>
+            <i class="fas fa-edit"></i>
+          <% end %>
+          <%= link_to recipe_path(recipe),
+                      class: "text-black-50",
+                      method: :delete,
+                      remote: true,
+                      data: { confirm: "Etes-vous sûr de vouloir supprimer la recette #{recipe.name}?" } do
+          %>
+            <i class="fas fa-trash"></i>
+          <% end %>
+        </div>
       </div>
     <% end %>
   </div>
