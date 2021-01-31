@@ -1,11 +1,14 @@
 <% content_for :title, "Liste des recettes" %>
 
 <div class="container">
-  <h1>Liste des recettes</h1>
+  <h1 class="text-center my-4">Mes recettes</h1>
 
-  <div>
+  <div class="card-deck">
     <% @recipes.each do |recipe| %>
-      <div class="card text-center m-3" id="recipe-<%= recipe.id %>" style="width: 18rem;">
+      <div
+        class="card text-center mb-3"
+        id="recipe-<%= recipe.id %>"
+      >
         <%= image_tag "#{recipe.photo}", class: "card-img-top" %>
         <div class="card-body">
           <h5 class="card-title"><%= recipe.name %></h5>
@@ -22,7 +25,14 @@
             %>
 
             <!-- Modal -->
-            <div class="modal text-left fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div
+              class="modal text-left fade"
+              id="exampleModalCenter"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="exampleModalCenterTitle"
+              aria-hidden="true"
+            >
               <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -80,5 +90,15 @@
         </div>
       </div>
     <% end %>
+    <div
+      class="card text-center mb-3"
+    >
+      <%= image_tag "https://via.placeholder.com/500x334?text=Miam+miam+miam...",
+                    class: "card-img-top"
+      %>
+      <div class="card-body">
+        <%= link_to "Ajouter une recette", new_recipe_path, class: "btn btn-primary text-white px-4" %>
+      </div>
+    </div>
   </div>
 </div>
