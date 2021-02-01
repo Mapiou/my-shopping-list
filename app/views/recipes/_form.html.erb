@@ -29,5 +29,7 @@
     collection: Recipe::CATEGORIES,
     as: :radio_buttons
   %>
-  <%= f.submit "#{@recipe.new_record? ? 'Ajouter' : 'Modifier'}" %>
+  <%= f.submit  "#{@recipe.new_record? ? 'Ajouter' : 'Modifier'}",
+                class: "btn btn-danger"
+  %>
 <% end %>
