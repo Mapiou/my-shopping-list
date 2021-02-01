@@ -1,10 +1,19 @@
 <% content_for :title, "Liste des recettes" %>
 
 <div class="container">
-  <h1 class="text-center my-4">Mes recettes</h1>
-
+  <h1 class="mt-4 mb-0">Mes recettes</h1>
+  <p class="mb-5">
+    <%= @shopping_lists.size %> recette(s) sélectionnée(s)
+    <span class="d-none d-sm-inline">dans votre liste de courses</span>
+    <% if @shopping_lists.size > 0 %>
+      <i class="fas fa-clipboard-check"></i>
+    <% else %>
+      <i class="fas fa-info-circle"></i>
+    <% end %>
+  </p>
   <div class="card-deck">
     <% @recipes.each do |recipe| %>
+      <!-- Recipe card -->
       <div
         class="card text-center mb-3"
         id="recipe-<%= recipe.id %>"
@@ -58,23 +67,30 @@
               </div>
             </div>
           </div>
+
           <hr />
-          <div>
-            <%= link_to "-",
-                        recipe_shopping_list_path(recipe, 0),
-                        class: "btn btn-primary font-weight-bold text-white px-4",
-                        method: :patch,
-                        remote: true
-            %>
-            <span class="px-3"><%= @shopping_lists[recipe.id] ||= 0 %></span>
-            <%= link_to "+",
-                        recipe_shopping_lists_path(recipe),
-                        class: "btn btn-primary font-weight-bold text-white px-4",
-                        method: :post,
-                        remote: true
-            %>
-          </div>
+
+          <!-- Add/Delete servings buttons -->
+          <%= link_to "-",
+                      recipe_shopping_list_path(recipe, 0),
+                      class: "btn btn-primary font-weight-bold text-white px-lg-4",
+                      method: :patch,
+                      remote: true
+          %>
+
+          <span class="px-2">
+            <%= @shopping_lists[recipe.id] ||= 0 %>
+            <span class="d-none d-lg-inline">portion(s)</span>
+          </span>
+
+          <%= link_to "+",
+                      recipe_shopping_lists_path(recipe),
+                      class: "btn btn-primary font-weight-bold text-white px-lg-4",
+                      method: :post,
+                      remote: true
+          %>
         </div>
+
         <div class="text-right mr-3 mb-2">
           <%= link_to edit_recipe_path(recipe), class: "text-black-50" do %>
             <i class="fas fa-edit"></i>
@@ -90,14 +106,18 @@
         </div>
       </div>
     <% end %>
-    <div
-      class="card text-center mb-3"
-    >
+
+    <!-- Default card -->
+    <div class="card text-center mb-3">
       <%= image_tag "https://via.placeholder.com/500x334?text=Miam+miam+miam...",
                     class: "card-img-top"
       %>
       <div class="card-body">
-        <%= link_to "Ajouter une recette", new_recipe_path, class: "btn btn-primary text-white px-4" %>
+        <div class="py-md-5">
+          <%= link_to "Ajouter une recette",
+                      new_recipe_path, class: "btn btn-primary text-white px-4"
+          %>
+        </div>
       </div>
     </div>
   </div>

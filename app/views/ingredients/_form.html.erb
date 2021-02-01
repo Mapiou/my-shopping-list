@@ -8,5 +8,7 @@
     label: "Section",
     collection: Ingredient::SECTIONS
   %>
-  <%= f.submit "#{@ingredient.new_record? ? 'Ajouter' : 'Modifier'}" %>
+  <%= f.submit  "#{@ingredient.new_record? ? 'Ajouter' : 'Modifier'}",
+                class: "btn btn-danger"
+  %>
 <% end %>

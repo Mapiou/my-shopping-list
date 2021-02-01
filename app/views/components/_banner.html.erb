@@ -1,10 +1,16 @@
 <div class="Banner">
   <div class="container">
     <h1 class="Banner__heading">Ma liste de courses</h1>
-    <p class="Banner__subheading">En 1 minute top chrono à partir d'une sélection des meilleures recettes.</p>
+    <p class="Banner__subheading">En une minute top chrono à partir d'une sélection de mes meilleures recettes.</p>
     <p class="Banner__cta">
-      <%= link_to "Voir mes recettes", recipes_path, class: "btn btn-danger btn-lg" %>
-      <%= link_to "Voir ma liste de courses", shopping_lists_path, class: "btn btn-danger btn-lg" %>
+      <%= link_to "Voir mes recettes",
+                  recipes_path,
+                  class: "btn btn-danger btn-lg"
+      %>
+      <%= link_to "Voir ma liste de courses",
+                  shopping_lists_path,
+                  class: "btn btn-danger btn-lg"
+      %>
     </p>
   </div>
 </div>

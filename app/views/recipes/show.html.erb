@@ -1,7 +1,7 @@
 <% content_for :title, "Recette" %>
 
 <div class="container">
-  <h1><%= @recipe.name %></h1>
+  <h1 class="my-4"><%= @recipe.name %></h1>
 
   <div>
     <div>
@@ -12,6 +12,18 @@
       <p><%= @recipe.season %></p>
       <p><%= @recipe.category %></p>
     </div>
+
+    <div>
+      <%= link_to "Modifier la recette", edit_recipe_path(@recipe) %>
+    </div>
+    <div>
+      <%= link_to "Supprimer la recette",
+                  recipe_path(@recipe),
+                  method: :delete,
+                  data: { confirm: "Etes-vous sûr de vouloir supprimer la recette #{@recipe.name}?" }
+      %>
+    </div>
+
     <div id="doses">
       <% @recipe.doses.each do |dose| %>
         <div id="dose-<%= dose.id %>">
@@ -43,19 +55,8 @@
           label: "Unité",
           collection: Dose::UNITS
         %>
-        <%= f.submit "Ajouter" %>
+        <%= f.submit "Ajouter", class: "btn btn-danger" %>
       <% end %>
-    </div>
-
-    <div>
-      <%= link_to "Modifier la recette", edit_recipe_path(@recipe) %>
-    </div>
-    <div>
-      <%= link_to "Supprimer la recette",
-                  recipe_path(@recipe),
-                  method: :delete,
-                  data: { confirm: "Etes-vous sûr de vouloir supprimer la recette #{@recipe.name}?" }
-      %>
     </div>
   </div>
 </div>
