@@ -1,7 +1,17 @@
 <% content_for :title, "Ajouter une recette" %>
 
 <div class="container">
-  <h1 class="my-4">Ajouter une recette</h1>
-
-  <%= render "form", recipe: @recipe %>
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8">
+      <h1 class="mt-4 mb-0">Ajouter une recette</h1>
+      <p class="mb-4">
+        Renseigner l'ensemble des champs avant de passer à l'étape suivante
+      </p>
+        <div class="card">
+          <div class="card-body">
+            <%= render "form", recipe: @recipe %>
+          </div>
+        </div>
+    </div>
+  </div>
 </div>

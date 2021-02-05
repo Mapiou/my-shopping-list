@@ -10,8 +10,7 @@ class Recipe < ApplicationRecord
   validates :cooking_time,
             numericality: { only_integer: true, greater_than: 0 }
   validates :week_nb,
-            numericality: { only_integer: true },
-            inclusion: { in: 1..53 }
+            numericality: { only_integer: true, greater_than: 0, less_than: 54 }
   validates :season, inclusion: { in: SEASONS }
   validates :category, inclusion: { in: CATEGORIES }
 end
