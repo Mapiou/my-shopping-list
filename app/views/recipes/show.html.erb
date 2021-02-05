@@ -1,62 +1,78 @@
 <% content_for :title, "Recette" %>
 
 <div class="container">
-  <h1 class="my-4"><%= @recipe.name %></h1>
+  <!-- Recipe card -->
+  <div class="card my-4">
+    <%= image_tag "#{@recipe.photo}", class: "card-img-top" %>
+    <div class="card-body">
+      <h5 class="card-title"><%= @recipe.name %></h5>
+      <p class="card-text">
+        <span class="badge badge-danger text-white"><%= @recipe.season %></span>
+        <span class="badge badge-warning text-white"><%= @recipe.category %></span>
+        <span class="badge badge-info text-white"><%= @recipe.cooking_time %> minutes</span>
+        <span class="badge badge-success text-white">Semaine <%= @recipe.week_nb %></span>
+      </p>
 
-  <div>
-    <div>
-      <p><%= @recipe.name %></p>
-      <p><%= @recipe.photo %></p>
-      <p><%= @recipe.cooking_time %></p>
-      <p><%= @recipe.week_nb %></p>
-      <p><%= @recipe.season %></p>
-      <p><%= @recipe.category %></p>
-    </div>
+      <div class="row justify-content-center my-5">
+        <!-- Ingredients list -->
+        <div id="doses" class=" col-md-8 col-lg-5">
+          <h5>Liste des ingrédients</h5>
+          <% @recipe.doses.each do |dose| %>
+            <div id="dose-<%= dose.id %>">
+              <%= dose.ingredient.name %>
+              <%= format_quantity(dose.quantity) %>
+              <%= dose.unit %>
+              <%= link_to dose_path(dose),
+                          class: "text-black-50 mx-2",
+                          method: :delete,
+                          remote: true do
+              %>
+                <i class="fas fa-trash"></i>
+              <% end %>
 
-    <div>
-      <%= link_to "Modifier la recette", edit_recipe_path(@recipe) %>
-    </div>
-    <div>
-      <%= link_to "Supprimer la recette",
-                  recipe_path(@recipe),
-                  method: :delete,
-                  data: { confirm: "Etes-vous sûr de vouloir supprimer la recette #{@recipe.name}?" }
-      %>
-    </div>
-
-    <div id="doses">
-      <% @recipe.doses.each do |dose| %>
-        <div id="dose-<%= dose.id %>">
-          <%= dose.ingredient.name %>
-          <%= format_quantity(dose.quantity) %>
-          <%= dose.unit %>
-          <%= link_to "Supprimer",
-                      dose_path(dose),
-                      method: :delete,
-                      remote: true
-          %>
+            </div>
+          <% end %>
         </div>
-      <% end %>
-    </div>
 
-    <div>
-      <%= simple_form_for([@recipe, @dose], remote: true) do |f| %>
-        <%=
-          f.association :ingredient,
-          label: "Ingrédient"
+        <!-- Ingredients form -->
+        <div class="col-md-8 col-lg-5 mt-5 mt-lg-0">
+          <%= simple_form_for([@recipe, @dose], remote: true, html: { class: "form-row" }) do |f| %>
+            <%=
+              f.association :ingredient,
+              label: "Ingrédient",
+              wrapper_html: { class: 'col-12' }
+            %>
+            <%=
+              f.input :quantity,
+              label: "Quantité",
+              input_html: { min: 0 },
+              wrapper_html: { class: 'col-4' }
+            %>
+            <%=
+              f.input :unit,
+              label: "Unité",
+              collection: Dose::UNITS,
+              wrapper_html: { class: 'col-8' }
+            %>
+            <%= f.submit "Ajouter", class: "btn btn-danger col-4 offset-4 my-2" %>
+          <% end %>
+        </div>
+      </div>
+
+      <!-- Add/Delete recipe icons -->
+      <div class="text-right mr-3 mb-2">
+        <%= link_to edit_recipe_path(@recipe), class: "text-black-50 mr-2" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+        <%= link_to recipe_path(@recipe),
+                    class: "text-black-50",
+                    method: :delete,
+                    remote: true,
+                    data: { confirm: "Etes-vous sûr de vouloir supprimer la recette #{@recipe.name}?" } do
         %>
-        <%=
-          f.input :quantity,
-          label: "Quantité",
-          input_html: { min: 0 }
-        %>
-        <%=
-          f.input :unit,
-          label: "Unité",
-          collection: Dose::UNITS
-        %>
-        <%= f.submit "Ajouter", class: "btn btn-danger" %>
-      <% end %>
+          <i class="fas fa-trash"></i>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
