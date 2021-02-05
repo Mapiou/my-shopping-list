@@ -1,11 +1,17 @@
 <% content_for :title, "Modifier la recette" %>
 
 <div class="container">
-  <h1 class="my-4">Modifier la recette</h1>
-
-  <div>
-    <%= link_to "Revenir à la recette", recipe_path(@recipe) %>
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8">
+      <h1 class="mt-4 mb-0">Modifier la recette</h1>
+      <p class="mb-4">
+        Renseigner l'ensemble des champs avant de passer à l'étape suivante
+      </p>
+        <div class="card">
+          <div class="card-body">
+            <%= render "form", recipe: @recipe %>
+          </div>
+        </div>
+    </div>
   </div>
-
-  <%= render "form", recipe: @recipe %>
 </div>

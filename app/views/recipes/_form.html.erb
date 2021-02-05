@@ -10,12 +10,12 @@
   <%=
     f.input :cooking_time,
     label: "Temps de préparation (en minutes)",
-    input_html: { min: 0 }
+    input_html: { min: 0, class: "col-3" }
   %>
   <%=
     f.input :week_nb,
     label: "Numéro de semaine",
-    collection: 1..53
+    input_html: { min: 0, max: 53, class: "col-3" }
   %>
   <%=
     f.input :season,
@@ -29,7 +29,5 @@
     collection: Recipe::CATEGORIES,
     as: :radio_buttons
   %>
-  <%= f.submit  "#{@recipe.new_record? ? 'Ajouter' : 'Modifier'}",
-                class: "btn btn-danger"
-  %>
+  <%= f.submit "Suivant", class: "btn btn-danger col-6 offset-3" %>
 <% end %>
