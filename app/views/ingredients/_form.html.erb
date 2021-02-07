@@ -6,9 +6,11 @@
   <%=
     f.input :section,
     label: "Section",
-    collection: Ingredient::SECTIONS
+    collection: Ingredient::SECTIONS,
+    as: :radio_buttons,
+    wrapper: "custom_collection"
   %>
   <%= f.submit  "#{@ingredient.new_record? ? 'Ajouter' : 'Modifier'}",
-                class: "btn btn-danger"
+                class: "btn btn-danger col-4 offset-4"
   %>
 <% end %>

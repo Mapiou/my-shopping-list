@@ -40,19 +40,19 @@
             <%=
               f.association :ingredient,
               label: "Ingrédient",
-              wrapper_html: { class: 'col-12' }
+              wrapper_html: { class: "col-12" }
             %>
             <%=
               f.input :quantity,
               label: "Quantité",
               input_html: { min: 0 },
-              wrapper_html: { class: 'col-4' }
+              wrapper_html: { class: "col-4" }
             %>
             <%=
               f.input :unit,
               label: "Unité",
               collection: Dose::UNITS,
-              wrapper_html: { class: 'col-8' }
+              wrapper_html: { class: "col-8" }
             %>
             <%= f.submit "Ajouter", class: "btn btn-danger col-4 offset-4 my-2" %>
           <% end %>
