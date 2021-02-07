@@ -1,0 +1,8 @@
+.img-truncate {
+  margin: -20% 0;
+}
+
+.img-xs-truncate {
+  @include media-breakpoint-only(xs) {
+  margin: -20% 0;  }
+}
