@@ -21,13 +21,15 @@
     f.input :season,
     label: "Saison",
     collection: Recipe::SEASONS,
-    as: :radio_buttons
+    as: :radio_buttons,
+    wrapper: "custom_collection_inline"
   %>
   <%=
     f.input :category,
     label: "Catégorie",
     collection: Recipe::CATEGORIES,
-    as: :radio_buttons
+    as: :radio_buttons,
+    wrapper: "custom_collection_inline"
   %>
   <%= f.submit "Suivant", class: "btn btn-danger col-4 offset-4" %>
 <% end %>

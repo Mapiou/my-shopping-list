@@ -82,9 +82,7 @@ SimpleForm.setup do |config|
     b.wrapper :legend_tag, tag: 'legend', class: 'col-form-label pt-0' do |ba|
       ba.use :label_text
     end
-    # Change default config
-    # b.use :input, class: 'form-check-input', error_class: 'is-invalid', valid_class: 'is-valid'
-    b.use :input, class: 'form-check-input'
+    b.use :input, class: 'form-check-input', error_class: 'is-invalid', valid_class: 'is-valid'
     b.use :full_error, wrap_with: { tag: 'div', class: 'invalid-feedback d-block' }
     b.use :hint, wrap_with: { tag: 'small', class: 'form-text text-muted' }
   end
@@ -305,7 +303,9 @@ SimpleForm.setup do |config|
     b.wrapper :legend_tag, tag: 'legend', class: 'col-form-label pt-0' do |ba|
       ba.use :label_text
     end
-    b.use :input, class: 'custom-control-input', error_class: 'is-invalid', valid_class: 'is-valid'
+    ### Change default config to remove color when valid or invalid
+    # b.use :input, class: 'custom-control-input', error_class: 'is-invalid', valid_class: 'is-valid'
+    b.use :input, class: 'custom-control-input'
     b.use :full_error, wrap_with: { tag: 'div', class: 'invalid-feedback d-block' }
     b.use :hint, wrap_with: { tag: 'small', class: 'form-text text-muted' }
   end
@@ -317,7 +317,9 @@ SimpleForm.setup do |config|
     b.wrapper :legend_tag, tag: 'legend', class: 'col-form-label pt-0' do |ba|
       ba.use :label_text
     end
-    b.use :input, class: 'custom-control-input', error_class: 'is-invalid', valid_class: 'is-valid'
+    ### Change default config to remove color when valid or invalid
+    # b.use :input, class: 'custom-control-input', error_class: 'is-invalid', valid_class: 'is-valid'
+    b.use :input, class: 'custom-control-input'
     b.use :full_error, wrap_with: { tag: 'div', class: 'invalid-feedback d-block' }
     b.use :hint, wrap_with: { tag: 'small', class: 'form-text text-muted' }
   end
@@ -417,26 +419,27 @@ SimpleForm.setup do |config|
 
   # Custom wrappers for input types. This should be a hash containing an input
   # type as key and the wrapper that will be used for all inputs with specified type.
-  config.wrapper_mappings = {
-    boolean:       :vertical_boolean,
-    check_boxes:   :vertical_collection,
-    date:          :vertical_multi_select,
-    datetime:      :vertical_multi_select,
-    file:          :vertical_file,
-    radio_buttons: :vertical_collection,
-    range:         :vertical_range,
-    time:          :vertical_multi_select
-  }
+  ### Use custom instead
+  # config.wrapper_mappings = {
+  #   boolean:       :vertical_boolean,
+  #   check_boxes:   :vertical_collection,
+  #   date:          :vertical_multi_select,
+  #   datetime:      :vertical_multi_select,
+  #   file:          :vertical_file,
+  #   radio_buttons: :vertical_collection,
+  #   range:         :vertical_range,
+  #   time:          :vertical_multi_select
+  # }
 
   # enable custom form wrappers
-  # config.wrapper_mappings = {
-  #   boolean:       :custom_boolean,
-  #   check_boxes:   :custom_collection,
-  #   date:          :custom_multi_select,
-  #   datetime:      :custom_multi_select,
-  #   file:          :custom_file,
-  #   radio_buttons: :custom_collection,
-  #   range:         :custom_range,
-  #   time:          :custom_multi_select
-  # }
+  config.wrapper_mappings = {
+    boolean:       :custom_boolean,
+    check_boxes:   :custom_collection,
+    date:          :custom_multi_select,
+    datetime:      :custom_multi_select,
+    file:          :custom_file,
+    radio_buttons: :custom_collection,
+    range:         :custom_range,
+    time:          :custom_multi_select
+  }
 end
