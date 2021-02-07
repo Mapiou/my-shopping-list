@@ -9,13 +9,27 @@
       </p>
         <div class="card">
           <div class="card-body">
-            <% @ingredients.each do |ingredient| %>
-              <div>
-                <%= ingredient.name %>
-                (<%= ingredient.section %>)
-                <%= link_to "Modifier", edit_ingredient_path(ingredient) %>
-              </div>
-            <% end %>
+            <table class="table table-sm table-borderless">
+              <thead>
+                <tr>
+                  <th scope="col">Ingrédient</th>
+                  <th scope="col">Rayon</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @ingredients.each do |ingredient| %>
+                  <tr>
+                    <td scope="row"><%= ingredient.name %></td>
+                    <td><%= ingredient.section %></td>
+                    <td>
+                      <%= link_to edit_ingredient_path(ingredient) do %>
+                        <i class="fas fa-edit"></i>
+                      <% end %>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
           </div>
         </div>
     </div>
