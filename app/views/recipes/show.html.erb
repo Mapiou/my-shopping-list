@@ -3,7 +3,9 @@
 <div class="container">
   <!-- Recipe card -->
   <div class="card my-4">
-    <%= image_tag "#{@recipe.photo}", class: "card-img-top" %>
+    <div class="overflow-hidden">
+      <%= image_tag "#{@recipe.photo}", class: "card-img-top", style: "margin: -20% 0" %>
+    </div>
     <div class="card-body">
       <h5 class="card-title"><%= @recipe.name %></h5>
       <p class="card-text">
@@ -13,25 +15,34 @@
         <span class="badge badge-success text-white">Semaine <%= @recipe.week_nb %></span>
       </p>
 
-      <div class="row justify-content-center my-5">
+      <div class="row justify-content-around my-5">
         <!-- Ingredients list -->
         <div id="doses" class=" col-md-8 col-lg-5">
-          <h5>Liste des ingrédients</h5>
-          <% @recipe.doses.each do |dose| %>
-            <div id="dose-<%= dose.id %>">
-              <%= dose.ingredient.name %>
-              <%= format_quantity(dose.quantity) %>
-              <%= dose.unit %>
-              <%= link_to dose_path(dose),
-                          class: "text-black-50 mx-2",
-                          method: :delete,
-                          remote: true do
-              %>
-                <i class="fas fa-trash"></i>
+          <table class="table table-sm table-borderless">
+            <thead>
+              <tr>
+                <th scope="col">Ingrédient</th>
+                <th scope="col">Quantité</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @recipe.doses.each do |dose| %>
+                <tr id="dose-<%= dose.id %>">
+                  <td scope="row"><%= dose.ingredient.name %></td>
+                  <td><%= format_quantity(dose.quantity) %> <%= dose.unit %></td>
+                  <td>
+                    <%= link_to dose_path(dose),
+                                class: "text-black-50 mx-2",
+                                method: :delete,
+                                remote: true do
+                    %>
+                      <i class="fas fa-trash"></i>
+                    <% end %>
+                  </td>
+                </tr>
               <% end %>
-
-            </div>
-          <% end %>
+            </tbody>
+          </table>
         </div>
 
         <!-- Ingredients form -->
@@ -54,7 +65,7 @@
               collection: Dose::UNITS,
               wrapper_html: { class: "col-8" }
             %>
-            <%= f.submit "Ajouter", class: "btn btn-danger col-4 offset-4 my-2" %>
+            <%= f.submit "Ajouter", class: "btn btn-danger col-6 offset-3 mt-3" %>
           <% end %>
         </div>
       </div>

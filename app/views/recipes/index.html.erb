@@ -18,7 +18,10 @@
         class="card text-center mb-3"
         id="recipe-<%= recipe.id %>"
       >
-        <%= image_tag "#{recipe.photo}", class: "card-img-top" %>
+        <%= link_to image_tag("#{recipe.photo}", class: "card-img-top"),
+                    "#",
+                    data: { toggle: "modal", target: "#ingredientsListModal" }
+        %>
         <div class="card-body">
           <h5 class="card-title"><%= recipe.name %></h5>
           <div class="card-text">
