@@ -1,3 +1,9 @@
+/* Customize every label */
+.my-label, fieldset legend, fieldset label {
+  color: $gray-700;
+  margin-bottom: 4px;
+}
+
 /* Customize the label (the container) */
 .my-checkbox {
   display: block;

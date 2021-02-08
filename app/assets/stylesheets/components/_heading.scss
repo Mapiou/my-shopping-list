@@ -1,0 +1,24 @@
+.h-deco-left {
+  border-left: 4px solid $raspberry;
+  padding-left: 24px;
+  margin: 24px 0;
+
+  h1, h2 {
+    padding: 0;
+    margin: 0;
+  }
+
+  p {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.h-deco-bottom em {
+  display: block;
+  color: $raspberry;
+  font-size: 40px;
+  font-style: normal;
+  line-height: 16px;
+  margin-bottom: 20px;
+}

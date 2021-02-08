@@ -1,16 +1,19 @@
 <% content_for :title, "Liste des recettes" %>
 
 <div class="container">
-  <h1 class="mt-4 mb-0">Mes recettes</h1>
-  <p class="mb-5">
-    <%= @shopping_lists.size %> recette(s) sélectionnée(s)
-    <span class="d-none d-sm-inline">dans ma liste de courses</span>
-    <% if @shopping_lists.size > 0 %>
-      <i class="fas fa-clipboard-check"></i>
-    <% else %>
-      <i class="fas fa-info-circle" title="Vous n'avez pas sélectionné de recettes."></i>
-    <% end %>
-  </p>
+  <div class="h-deco-left">
+    <h1>Mes recettes</h1>
+    <p>
+      <%= @shopping_lists.size %> recette(s) sélectionnée(s)
+      <span class="d-none d-sm-inline">dans ma liste de courses</span>
+      <% if @shopping_lists.size > 0 %>
+        <i class="fas fa-clipboard-check"></i>
+      <% else %>
+        <i class="fas fa-info-circle" title="Vous n'avez pas sélectionné de recettes."></i>
+      <% end %>
+    </p>
+  </div>
+
   <div class="card-deck">
     <% @recipes.each do |recipe| %>
       <!-- Recipe card -->
@@ -113,7 +116,7 @@
 
     <!-- Default card -->
     <div class="card text-center mb-3">
-      <%= image_tag "default-recipe.jpg", class: "card-img-top opacity-2" %>
+      <%= image_tag "default-recipe.jpg", class: "card-img-top o-2" %>
       <div class="card-body">
         <div class="py-md-5">
           <%= link_to "Ajouter une recette",

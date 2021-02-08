@@ -3,35 +3,34 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-lg-8">
-      <h1 class="mt-4 mb-0">Liste des ingrédients</h1>
-      <p class="mb-4">
-        <%= link_to "Ajouter un ingrédient", new_ingredient_path %>
-      </p>
-        <div class="card">
-          <div class="card-body">
-            <table class="table table-sm table-borderless">
-              <thead>
-                <tr>
-                  <th scope="col">Ingrédient</th>
-                  <th scope="col">Rayon</th>
-                </tr>
-              </thead>
-              <tbody>
-                <% @ingredients.each do |ingredient| %>
-                  <tr>
-                    <td scope="row"><%= ingredient.name %></td>
-                    <td><%= ingredient.section %></td>
-                    <td>
-                      <%= link_to edit_ingredient_path(ingredient) do %>
-                        <i class="fas fa-edit"></i>
-                      <% end %>
-                    </td>
-                  </tr>
-                <% end %>
-              </tbody>
-            </table>
-          </div>
+      <div class="card mt-4">
+        <div class="h-deco-left">
+          <h1>Liste des ingrédients</h1>
+          <p>
+            <%= link_to new_ingredient_path, class: "text-decoration-none" do %>
+              <i class="fas fa-plus"></i>
+              Ajouter un ingrédient
+            <% end %>
+          </p>
         </div>
+        <div class="card-body">
+          <table class="table table-sm table-borderless table-striped">
+            <tbody>
+              <% @ingredients.each do |ingredient| %>
+                <tr>
+                  <td scope="row"><%= ingredient.name %></td>
+                  <td><%= ingredient.section %></td>
+                  <td>
+                    <%= link_to edit_ingredient_path(ingredient) do %>
+                      <i class="fas fa-edit"></i>
+                    <% end %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
 </div>
