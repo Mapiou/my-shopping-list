@@ -3,64 +3,72 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-lg-8">
-      <h2 class="mt-4 mb-0">Mes recettes sélectionnées</h2>
-      <p>
-        <%= link_to "Modifier ma sélection", recipes_path %>
-      </p>
-
-      <!-- Selected recipes list -->
-      <% @shopping_lists.each do |item| %>
-        <!-- Recipe card -->
-        <div class="card mb-3">
-          <div class="row no-gutters">
-            <div class="col-sm-3 col-xl-2 overflow-hidden">
-              <%= link_to image_tag("#{item.recipe.photo}", class: "card-img-top img-xs-truncate"),
-                      "#",
-                      data: { toggle: "modal", target: "#ingredientsListModal" }
-              %>
-            </div>
-            <div class="col-sm-9 col-xl-10">
-              <div class="card-body pt-3 pb-sm-0">
-                <div class="float-right font-weight-bold">
-                  <%= "x#{item.quantity} portion(s)" %>
-                </div>
-                <h5 class="card-title text-truncate mb-1"><%= item.recipe.name %></h5>
-                <div class="card-text">
-                  <span class="badge badge-danger text-white"><%= item.recipe.season %></span>
-                  <span class="badge badge-warning text-white"><%= item.recipe.category %></span>
-                  <span class="badge badge-info text-white"><%= item.recipe.cooking_time %> minutes</span>
-                  <span class="badge badge-success text-white">Semaine <%= item.recipe.week_nb %></span>
-
-                  <!-- Button trigger modal -->
-                  <%= link_to "...",
-                              "#",
-                              class: "badge badge-secondary",
-                              data: { toggle: "modal", target: "#ingredientsListModal" }
+      <div class="card mt-4">
+        <div class="h-deco-left">
+          <h2>Mes recettes sélectionnées</h2>
+          <p>
+            <%= link_to recipes_path, class: "text-decoration-none" do %>
+              <i class="fas fa-edit"></i>
+              Modifier ma sélection
+            <% end %>
+          </p>
+        </div>
+        <div class="card-body px-4 pt-0 pb-4">
+          <!-- Selected recipes list -->
+          <% @shopping_lists.each do |item| %>
+            <!-- Recipe card -->
+            <div class="card mb-3">
+              <div class="row no-gutters">
+                <div class="col-sm-3 col-xl-2 overflow-hidden">
+                  <%= link_to image_tag("#{item.recipe.photo}", class: "card-img-top img-xs-truncate"),
+                          "#",
+                          data: { toggle: "modal", target: "#ingredientsListModal" }
                   %>
+                </div>
+                <div class="col-sm-9 col-xl-10">
+                  <div class="card-body pt-3 pb-sm-0">
+                    <div class="float-right font-weight-bold">
+                      <%= "x#{item.quantity} portion(s)" %>
+                    </div>
+                    <h5 class="card-title text-truncate mb-1"><%= item.recipe.name %></h5>
+                    <div class="card-text">
+                      <span class="badge badge-danger text-white"><%= item.recipe.season %></span>
+                      <span class="badge badge-warning text-white"><%= item.recipe.category %></span>
+                      <span class="badge badge-info text-white"><%= item.recipe.cooking_time %> minutes</span>
+                      <span class="badge badge-success text-white">Semaine <%= item.recipe.week_nb %></span>
 
-                  <!-- Modal -->
-                  <div
-                    class="modal text-left fade"
-                    id="ingredientsListModal"
-                    tabindex="-1"
-                    role="dialog"
-                    aria-labelledby="ingredientsListModalTitle"
-                    aria-hidden="true"
-                  >
-                    <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="ingredientsListModalTitle">Liste des ingrédients</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          <ul class="list-unstyled">
-                            <% item.recipe.ingredients.each do |ingredient| %>
-                              <li><%= ingredient.name %></li>
-                            <% end %>
-                          </ul>
+                      <!-- Button trigger modal -->
+                      <%= link_to "...",
+                                  "#",
+                                  class: "badge badge-secondary",
+                                  data: { toggle: "modal", target: "#ingredientsListModal" }
+                      %>
+
+                      <!-- Modal -->
+                      <div
+                        class="modal text-left fade"
+                        id="ingredientsListModal"
+                        tabindex="-1"
+                        role="dialog"
+                        aria-labelledby="ingredientsListModalTitle"
+                        aria-hidden="true"
+                      >
+                        <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="ingredientsListModalTitle">Liste des ingrédients</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <ul class="list-unstyled">
+                                <% item.recipe.ingredients.each do |ingredient| %>
+                                  <li><%= ingredient.name %></li>
+                                <% end %>
+                              </ul>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -68,21 +76,28 @@
                 </div>
               </div>
             </div>
-          </div>
+          <% end %>
         </div>
-      <% end %>
+      </div>
 
       <!-- Shopping list -->
-      <h2 class="mt-5 mb-0">Ma liste de courses</h2>
-      <p>A vous de jouez...</p>
-      <div class="card">
-        <div class="card-body p-4">
+      <div class="card mt-4">
+        <div class="h-deco-left">
+          <h2>Ma liste de courses</h2>
+          <p>
+            <%= link_to recipes_path, class: "text-decoration-none" do %>
+              <i class="fas fa-chevron-left"></i>
+              Revenir à la liste des recettes
+            <% end %>
+          </p>
+        </div>
+        <div class="card-body px-4 pt-0 pb-4">
           <table class="table table-sm table-borderless">
             <tbody>
               <% @ingredients.each do |section, doses| %>
                 <% unless doses.empty? %>
                   <tr>
-                    <th scope="col"><%= section %></th>
+                    <th scope="col" class="pt-4"><%= section %></th>
                   </tr>
                   <% doses.each do |id, ingredient| %>
                     <tr>

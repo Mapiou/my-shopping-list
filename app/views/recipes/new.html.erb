@@ -3,15 +3,20 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-lg-8">
-      <h1 class="mt-4 mb-0">Ajouter une recette</h1>
-      <p class="mb-4">
-        Renseigner l'ensemble des champs avant de passer à l'étape suivante
-      </p>
-        <div class="card">
-          <div class="card-body">
-            <%= render "form", recipe: @recipe %>
-          </div>
+      <div class="card mt-4">
+        <div class="h-deco-left">
+          <h1>Ajouter une recette</h1>
+          <p>
+            <%= link_to recipes_path, class: "text-decoration-none" do %>
+              <i class="fas fa-chevron-left"></i>
+              Revenir à la liste des recettes
+            <% end %>
+          </p>
         </div>
+        <div class="card-body">
+          <%= render "form", recipe: @recipe %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
