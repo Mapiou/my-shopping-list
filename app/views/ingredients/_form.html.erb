@@ -1,7 +1,8 @@
-<%= simple_form_for(@ingredient) do |f| %>
+<%= simple_form_for(@ingredient, remote: true, html: { class: "my-form" }) do |f| %>
   <%=
     f.input :name,
-    label: "Nom"
+    label: "Nom",
+    required: false
   %>
   <%=
     f.input :section,

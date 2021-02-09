@@ -50,11 +50,12 @@
           </h5>
           <%= simple_form_for([@recipe, @dose],
                               remote: true,
-                              html: { class: "form-row" }) do |f|
+                              html: { class: "form-row my-form" }) do |f|
           %>
             <%=
               f.association :ingredient,
               label: "Ingrédient",
+              required: false,
               wrapper_html: { class: "col-12" }
             %>
             <%=
