@@ -1,59 +1,61 @@
-/* Customize every label */
-.my-label, fieldset legend, fieldset label {
+/* Customize every form */
+.my-form {
   color: $gray-700;
-  margin-bottom: 4px;
+
+  div.custom-control-inline {
+    width: 100%;
+
+    @include media-breakpoint-up(md) {
+      width: 20%;
+    }
+  }
 }
 
-/* Customize the label (the container) */
+/* Customize checkboxes */
 .my-checkbox {
   display: block;
   position: relative;
   cursor: pointer;
   margin-right: 8px;
-}
 
-/* Hide the browser's default checkbox */
-.my-checkbox input {
-  position: absolute;
-  opacity: 0;
-  height: 0;
-  width: 0;
-}
+  input {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+  }
 
-/* Create a custom checkbox */
-.checkmark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 25px;
-  width: 25px;
-  background-color: $light-gray;
-}
+  &:hover input ~ .checkmark {
+    background-color: $aqua;
+  }
 
-.my-checkbox:hover input ~ .checkmark {
-  background-color: $aqua;
-}
+  input:checked ~ .checkmark {
+    background-color: $aqua;
+  }
 
-.my-checkbox input:checked ~ .checkmark {
-  background-color: $aqua;
-}
+  input:checked ~ .checkmark:after {
+    display: block;
+  }
 
-.checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: $light-gray;
 
-.my-checkbox input:checked ~ .checkmark:after {
-  display: block;
-}
-
-.my-checkbox .checkmark:after {
-  left: 9px;
-  top: 5px;
-  width: 5px;
-  height: 10px;
-  border: solid white;
-  border-width: 0 3px 3px 0;
-  transform: rotate(45deg);
+    &:after {
+      left: 9px;
+      top: 5px;
+      width: 5px;
+      height: 10px;
+      border: solid white;
+      border-width: 0 3px 3px 0;
+      transform: rotate(45deg);
+      content: "";
+      position: absolute;
+      display: none;
+    }
+  }
 }
