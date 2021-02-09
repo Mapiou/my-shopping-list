@@ -17,21 +17,15 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <%= link_to "Accueil", root_path, class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Mes recettes", recipes_path, class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Ajouter une recette", new_recipe_path, class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Mes courses", shopping_lists_path, class: "nav-link" %>
-      </li>
+      <%= active_link_to "Accueil", root_path %>
+      <%= active_link_to "Mes recettes", recipes_path %>
+      <%= active_link_to "Ajouter une recette", new_recipe_path %>
+      <%= active_link_to "Mes courses", shopping_lists_path %>
       <li class="nav-item dropdown">
         <%= link_to "#",
-                    class: "nav-link dropdown-toggle",
+                    class: "nav-link dropdown-toggle
+                            #{'active text-danger' if current_page?(ingredients_path) ||
+                                                      current_page?(new_ingredient_path)}",
                     data: { toggle: "dropdown" },
                     'role': 'button',
                     'aria-haspopup': true,
@@ -40,8 +34,12 @@
           <i class="fas fa-user"></i>
         <% end %>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <%= link_to "Voir les ingrédients", ingredients_path, class: "dropdown-item" %>
-          <%= link_to "Ajouter un ingrédient", new_ingredient_path, class: "dropdown-item" %>
+          <%= link_to "Voir les ingrédients",
+                      ingredients_path,
+                      class: "dropdown-item #{'text-danger' if current_page?(ingredients_path)}" %>
+          <%= link_to "Ajouter un ingrédient",
+                      new_ingredient_path,
+                      class: "dropdown-item #{'text-danger' if current_page?(new_ingredient_path)}" %>
         </div>
       </li>
     </ul>
