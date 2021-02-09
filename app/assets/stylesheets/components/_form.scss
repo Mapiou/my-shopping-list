@@ -11,6 +11,11 @@
   }
 }
 
+/* Customize select */
+select.is-valid, select.is-invalid {
+  background-position: right 20px center !important;
+}
+
 /* Customize checkboxes */
 .my-checkbox {
   display: block;
