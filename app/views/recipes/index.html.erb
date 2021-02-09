@@ -4,7 +4,7 @@
   <div class="h-deco-left">
     <h1>Mes recettes</h1>
     <p>
-      <%= @shopping_lists.size %> recette(s) sélectionnée(s)
+      <%= pluralize(@shopping_lists.size, "recette sélectionnée") %>
       <span class="d-none d-sm-inline">dans ma liste de courses</span>
       <% if @shopping_lists.size > 0 %>
         <i class="fas fa-clipboard-check"></i>
@@ -86,7 +86,9 @@
 
           <span class="px-2">
             <%= @shopping_lists[recipe.id] ||= 0 %>
-            <span class="d-none d-lg-inline">portion(s)</span>
+            <span class="d-none d-lg-inline">
+              <%= "portion".pluralize(@shopping_lists[recipe.id] ||= 0) %>
+            </span>
           </span>
 
           <%= link_to "+",
