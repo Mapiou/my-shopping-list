@@ -14,8 +14,3 @@
 # ActiveSupport::Inflector.inflections(:en) do |inflect|
 #   inflect.acronym 'RESTful'
 # end
-
-ActiveSupport::Inflector.inflections(:en) do |inflect|
-  inflect.plural 'recette sélectionnée', 'recettes sélectionnées'
-  inflect.plural 'portion', 'portions'
-end

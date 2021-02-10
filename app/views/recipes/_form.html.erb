@@ -1,12 +1,10 @@
 <%= simple_form_for(@recipe, remote: true, html: { class: "my-form" }) do |f| %>
   <%=
     f.input :name,
-    label: "Titre",
     required: false
   %>
   <%=
     f.input :photo,
-    label: "Image",
     required: false
   %>
   <%=
@@ -16,22 +14,19 @@
   %>
   <%=
     f.input :week_nb,
-    label: "Numéro de semaine",
     input_html: { min: 0, max: 53, class: "col-3" }
   %>
   <%=
     f.input :season,
-    label: "Saison",
     collection: Recipe::SEASONS,
     as: :radio_buttons,
     wrapper: "custom_collection_inline"
   %>
   <%=
     f.input :category,
-    label: "Catégorie",
     collection: Recipe::CATEGORIES,
     as: :radio_buttons,
     wrapper: "custom_collection_inline"
   %>
-  <%= f.submit "Continuer", class: "btn btn-danger col-4 offset-4 my-4" %>
+  <%= f.submit t("form.next"), class: "btn btn-danger col-4 offset-4 my-4" %>
 <% end %>

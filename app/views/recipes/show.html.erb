@@ -54,23 +54,20 @@
           %>
             <%=
               f.association :ingredient,
-              label: "Ingrédient",
               required: false,
               wrapper_html: { class: "col-12" }
             %>
             <%=
               f.input :quantity,
-              label: "Quantité",
               input_html: { min: 0 },
               wrapper_html: { class: "col-4" }
             %>
             <%=
               f.input :unit,
-              label: "Unité",
               collection: Dose::UNITS,
               wrapper_html: { class: "col-8" }
             %>
-            <%= f.submit "Ajouter", class: "btn btn-danger col-6 offset-3 mt-3" %>
+            <%= f.submit t("form.add"), class: "btn btn-danger col-6 offset-3 mt-3" %>
           <% end %>
         </div>
       </div>
