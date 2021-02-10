@@ -94,7 +94,7 @@
         <div class="card-body px-4 pt-0 pb-4">
           <table class="table table-sm table-borderless">
             <tbody>
-              <% @ingredients.each do |section, doses| %>
+              <% @sorted_ingredients.each do |section, doses| %>
                 <% unless doses.empty? %>
                   <tr>
                     <th scope="col" class="pt-4"><%= section %></th>

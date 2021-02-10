@@ -53,7 +53,7 @@
                               html: { class: "form-row my-form" }) do |f|
           %>
             <%=
-              f.association :ingredient,
+              f.association :ingredient, collection: Ingredient.order("name"),
               required: false,
               wrapper_html: { class: "col-12" }
             %>

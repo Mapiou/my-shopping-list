@@ -2,7 +2,7 @@ class IngredientsController < ApplicationController
   before_action :set_ingredient, only: %i[edit update]
 
   def index
-    @ingredients = Ingredient.all.sort { |a, b| a.name <=> b.name }
+    @ingredients = Ingredient.order("name")
   end
 
   def new
