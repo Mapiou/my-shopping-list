@@ -1,17 +1,15 @@
 <%= simple_form_for(@ingredient, remote: true, html: { class: "my-form" }) do |f| %>
   <%=
     f.input :name,
-    label: "Nom",
     required: false
   %>
   <%=
     f.input :section,
-    label: "Section",
     collection: Ingredient::SECTIONS,
     as: :radio_buttons,
     wrapper: "custom_collection"
   %>
-  <%= f.submit  "#{@ingredient.new_record? ? 'Ajouter' : 'Modifier'}",
+  <%= f.submit  "#{@ingredient.new_record? ? t('form.add') : t('form.change')}",
                 class: "btn btn-danger col-4 offset-4 my-4"
   %>
 <% end %>
