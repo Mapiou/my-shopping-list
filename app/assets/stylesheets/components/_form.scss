@@ -1,4 +1,4 @@
-/* Customize every form */
+/* Customize forms */
 .my-form {
   color: $gray-700;
 
@@ -9,11 +9,14 @@
       width: 20%;
     }
   }
-}
 
-/* Customize select */
-select.is-valid, select.is-invalid {
-  background-position: right 20px center !important;
+  select.is-valid, select.is-invalid {
+    background-position: right 20px center !important;
+  }
+
+  input[type="radio"].is-valid ~ label, input[type="radio"].is-invalid ~ label {
+    color: $gray-700 !important;
+  }
 }
 
 /* Customize checkboxes */
