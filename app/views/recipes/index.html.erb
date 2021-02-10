@@ -77,26 +77,32 @@
           <hr />
 
           <!-- Add/Delete servings buttons -->
-          <%= link_to "-",
-                      recipe_shopping_list_path(recipe, 0),
-                      class: "btn btn-primary font-weight-bold text-white px-lg-4",
-                      method: :patch,
-                      remote: true
-          %>
+          <div class="d-flex
+                      justify-content-center
+                      align-items-center
+                      justify-content-lg-between"
+          >
+            <%= link_to "-",
+                        recipe_shopping_list_path(recipe, 0),
+                        class: "btn btn-primary font-weight-bold text-white px-3 px-lg-4",
+                        method: :patch,
+                        remote: true
+            %>
 
-          <span class="px-2">
-            <%= @shopping_lists[recipe.id] ||= 0 %>
-            <span class="d-none d-lg-inline">
-              <%= t("plurals.portions", count: @shopping_lists[recipe.id]) %>
+            <span class="px-3">
+              <%= @shopping_lists[recipe.id] ||= 0 %>
+              <span class="d-none d-lg-inline">
+                <%= t("plurals.portions", count: @shopping_lists[recipe.id]) %>
+              </span>
             </span>
-          </span>
 
-          <%= link_to "+",
-                      recipe_shopping_lists_path(recipe),
-                      class: "btn btn-primary font-weight-bold text-white px-lg-4",
-                      method: :post,
-                      remote: true
-          %>
+            <%= link_to "+",
+                        recipe_shopping_lists_path(recipe),
+                        class: "btn btn-primary font-weight-bold text-white px-3 px-lg-4",
+                        method: :post,
+                        remote: true
+            %>
+          </div>
         </div>
 
         <!-- Add/Delete recipe icons -->
