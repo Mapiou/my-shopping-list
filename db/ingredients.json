@@ -1,0 +1,450 @@
+[
+  {
+    "name": "Champignons de Paris",
+    "section": "Maraîcher"
+  },
+  {
+    "name": "Oignon nouveau",
+    "section": "Maraîcher"
+  },
+  {
+    "name": "Gousse d'ail",
+    "section": "Maraîcher"
+  },
+  {
+    "name": "Gingembre frais",
+    "section": "Maraîcher"
+  },
+  {
+    "name": "Dés de filet de poulet",
+    "section": "Boucherie"
+  },
+  {
+    "name": "Concombre",
+    "section": "Maraîcher"
+  },
+  {
+    "name": "Sauce asiatique douce",
+    "section": "Epicerie"
+  },
+  {
+    "name": "Nouilles udon fraîches",
+    "section": "Epicerie"
+  },
+  {
+    "name": "Noix de cajou",
+    "section": "Epicerie"
+  },
+  {
+    "name": "Pommes de terre à chair fondante",
+    "section": "Maraîcher"
+  },
+  {
+    "name": "Poireau",
+    "section": "Maraîcher"
+  },
+  {
+    "name": "Haricots verts",
+    "section": "Maraîcher"
+  },
+  {
+    "name": "Echalote",
+    "section": "Maraîcher"
+  },
+  {
+    "name": "Citron vert",
+    "section": "Maraîcher"
+  },
+  {
+    "name": "Persil plat frais",
+    "section": "Maraîcher"
+  },
+  {
+    "name": "Filet de cabillaud",
+    "section": "Poissonnerie"
+  },
+  {
+    "name": "Câpres",
+    "section": "Maraîcher"
+  },
+  {
+    "name": "Patates douces",
+    "section": "Maraîcher"
+  },
+  {
+    "name": "Pommes de terre à chair farineuse",
+    "section": "Maraîcher"
+  },
+  {
+    "name": "Piment rouge",
+    "section": "Maraîcher"
+  },
+  {
+    "name": "Graines de courge",
+    "section": "Epicerie"
+  },
+  {
+    "name": "Viande de bœuf hachée",
+    "section": "Boucherie"
+  },
+  {
+    "name": "Paprika en poudre",
+    "section": "Epicerie"
+  },
+  {
+    "name": "Oignon rouge",
+    "section": "Maraîcher"
+  },
+  {
+    "name": "Mozzarella di Bufala",
+    "section": "Fromagerie"
+  },
+  {
+    "name": "Pain naan",
+    "section": "Epicerie"
+  },
+  {
+    "name": "Fromage italien râpé",
+    "section": "Fromagerie"
+  },
+  {
+    "name": "Origan séché",
+    "section": "Epicerie"
+  },
+  {
+    "name": "Mesclun",
+    "section": "Maraîcher"
+  },
+  {
+    "name": "Farfalle",
+    "section": "Epicerie"
+  },
+  {
+    "name": "Pesto aux champignons des bois",
+    "section": "Epicerie"
+  },
+  {
+    "name": "Mâche",
+    "section": "Maraîcher"
+  },
+  {
+    "name": "Persil frisé frais",
+    "section": "Maraîcher"
+  },
+  {
+    "name": "Pecorino râpé",
+    "section": "Fromagerie"
+  },
+  {
+    "name": "Pommes de terre à chair ferme",
+    "section": "Maraîcher"
+  },
+  {
+    "name": "Carottes",
+    "section": "Maraîcher"
+  },
+  {
+    "name": "Thym séché",
+    "section": "Epicerie"
+  },
+  {
+    "name": "Ciboulette fraîche",
+    "section": "Maraîcher"
+  },
+  {
+    "name": "Fromage blanc",
+    "section": "Fromagerie"
+  },
+  {
+    "name": "Filet d'églefin sans peau",
+    "section": "Poissonnerie"
+  },
+  {
+    "name": "Courgette",
+    "section": "Maraîcher"
+  },
+  {
+    "name": "Poivron",
+    "section": "Maraîcher"
+  },
+  {
+    "name": "Riz basmati",
+    "section": "Epicerie"
+  },
+  {
+    "name": "Chapelure panko",
+    "section": "Epicerie"
+  },
+  {
+    "name": "Aiguillettes de poulet",
+    "section": "Boucherie"
+  },
+  {
+    "name": "Sauce soja",
+    "section": "Epicerie"
+  },
+  {
+    "name": "Courge butternut",
+    "section": "Maraîcher"
+  },
+  {
+    "name": "Paprika fumé en poudre",
+    "section": "Epicerie"
+  },
+  {
+    "name": "Rumsteak",
+    "section": "Boucherie"
+  },
+  {
+    "name": "Romarin frais",
+    "section": "Maraîcher"
+  },
+  {
+    "name": "Aubergine",
+    "section": "Maraîcher"
+  },
+  {
+    "name": "Oignon",
+    "section": "Maraîcher"
+  },
+  {
+    "name": "Cannelle en poudre",
+    "section": "Epicerie"
+  },
+  {
+    "name": "Concentré de tomates",
+    "section": "Epicerie"
+  },
+  {
+    "name": "Lentilles corail",
+    "section": "Epicerie"
+  },
+  {
+    "name": "Dés de tomates en conserve",
+    "section": "Epicerie"
+  },
+  {
+    "name": "Petit pain blanc",
+    "section": "Boulangerie"
+  },
+  {
+    "name": "Crème fraîche",
+    "section": "Fromagerie"
+  },
+  {
+    "name": "Emmental râpé",
+    "section": "Fromagerie"
+  },
+  {
+    "name": "Riz long grain",
+    "section": "Epicerie"
+  },
+  {
+    "name": "Pâte de curry rouge",
+    "section": "Epicerie"
+  },
+  {
+    "name": "Curcuma en poudre",
+    "section": "Epicerie"
+  },
+  {
+    "name": "Pois chiches",
+    "section": "Epicerie"
+  },
+  {
+    "name": "Lait de coco",
+    "section": "Epicerie"
+  },
+  {
+    "name": "Epinards",
+    "section": "Maraîcher"
+  },
+  {
+    "name": "Riz au pandan",
+    "section": "Epicerie"
+  },
+  {
+    "name": "Brocoli",
+    "section": "Maraîcher"
+  },
+  {
+    "name": "Cacahuètes",
+    "section": "Epicerie"
+  },
+  {
+    "name": "Crevettes",
+    "section": "Poissonnerie"
+  },
+  {
+    "name": "Semoule",
+    "section": "Epicerie"
+  },
+  {
+    "name": "Pomme",
+    "section": "Maraîcher"
+  },
+  {
+    "name": "Thym frais",
+    "section": "Maraîcher"
+  },
+  {
+    "name": "Filet mignon de porc",
+    "section": "Boucherie"
+  },
+  {
+    "name": "Roquette",
+    "section": "Maraîcher"
+  },
+  {
+    "name": "Saucisse de porc, marjolaine et ail",
+    "section": "Boucherie"
+  },
+  {
+    "name": "Cumin en poudre",
+    "section": "Epicerie"
+  },
+  {
+    "name": "Passata de tomates",
+    "section": "Epicerie"
+  },
+  {
+    "name": "Coriandre fraîche",
+    "section": "Maraîcher"
+  },
+  {
+    "name": "Lentilles vertes",
+    "section": "Epicerie"
+  },
+  {
+    "name": "Curry en poudre",
+    "section": "Epicerie"
+  },
+  {
+    "name": "Gomasio",
+    "section": "Epicerie"
+  },
+  {
+    "name": "Fromage de chèvre frais",
+    "section": "Fromagerie"
+  },
+  {
+    "name": "Noix concassées",
+    "section": "Epicerie"
+  },
+  {
+    "name": "Pâte à pizza",
+    "section": "Fromagerie"
+  },
+  {
+    "name": "Halloumi",
+    "section": "Fromagerie"
+  },
+  {
+    "name": "Couscous perlé",
+    "section": "Epicerie"
+  },
+  {
+    "name": "Amandes",
+    "section": "Epicerie"
+  },
+  {
+    "name": "Citron jaune",
+    "section": "Maraîcher"
+  },
+  {
+    "name": "Tomates semi-séchées",
+    "section": "Epicerie"
+  },
+  {
+    "name": "Zaatar",
+    "section": "Epicerie"
+  },
+  {
+    "name": "Harissa",
+    "section": "Epicerie"
+  },
+  {
+    "name": "Romarin séché",
+    "section": "Epicerie"
+  },
+  {
+    "name": "Casarecce",
+    "section": "Epicerie"
+  },
+  {
+    "name": "Tomme du Jura râpée",
+    "section": "Fromagerie"
+  },
+  {
+    "name": "Herbes italiennes",
+    "section": "Epicerie"
+  },
+  {
+    "name": "Lardons",
+    "section": "Boucherie"
+  },
+  {
+    "name": "Filet de merlu en croûte de pétales de maïs",
+    "section": "Poissonnerie"
+  },
+  {
+    "name": "Sauce ravigote",
+    "section": "Fromagerie"
+  },
+  {
+    "name": "Filet de poulet",
+    "section": "Boucherie"
+  },
+  {
+    "name": "Tomates concassées en conserve",
+    "section": "Epicerie"
+  },
+  {
+    "name": "Orzo",
+    "section": "Epicerie"
+  },
+  {
+    "name": "Noix de cajou grillées",
+    "section": "Epicerie"
+  },
+  {
+    "name": "Feuille de laurier",
+    "section": "Maraîcher"
+  },
+  {
+    "name": "Chou-rave",
+    "section": "Maraîcher"
+  },
+  {
+    "name": "Petit pain complet",
+    "section": "Boulangerie"
+  },
+  {
+    "name": "Céleri-rave",
+    "section": "Maraîcher"
+  },
+  {
+    "name": "Filet de saumon",
+    "section": "Poissonnerie"
+  },
+  {
+    "name": "Pain plat libanais",
+    "section": "Epicerie"
+  },
+  {
+    "name": "Gouda mi-vieux râpé",
+    "section": "Fromagerie"
+  },
+  {
+    "name": "Carotte jaune",
+    "section": "Maraîcher"
+  },
+  {
+    "name": "Graines de moutarde",
+    "section": "Epicerie"
+  },
+  {
+    "name": "Yaourt à la grecque",
+    "section": "Fromagerie"
+  }
+]
