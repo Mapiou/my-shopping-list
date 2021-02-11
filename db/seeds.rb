@@ -30,6 +30,30 @@ recipes = [
     week_nb: 49,
     season: "Hiver",
     category: "Végétarien"
+  },
+  {
+    name: "Cabillaud à la meunière et sauce au beurre & câpres",
+    photo: "s49-cabillaud-a-la-meuniere-et-sauce-au-beurre-capres.jpg",
+    cooking_time: 40,
+    week_nb: 49,
+    season: "Hiver",
+    category: "Poisson"
+  },
+  {
+    name: "Steak haché et purée de patate douce épicée",
+    photo: "s49-steak-hache-et-puree-de-patate-douce-epicee.jpg",
+    cooking_time: 30,
+    week_nb: 49,
+    season: "Hiver",
+    category: "Viande"
+  },
+  {
+    name: "Farfalle & pesto aux champignons des bois",
+    photo: "s49-farfalle-pesto-aux-champignons-des-bois.jpg",
+    cooking_time: 20,
+    week_nb: 49,
+    season: "Hiver",
+    category: "Végétarien"
   }
 ]
 
@@ -40,68 +64,9 @@ end
 puts "########## Recipes created! ##########"
 
 puts "########## Creating ingredients... ##########"
-ingredients = [
-  {
-    name: "Champignons de Paris",
-    section: "Maraîcher"
-  },
-  {
-    name: "Oignon nouveau",
-    section: "Maraîcher"
-  },
-  {
-    name: "Gousse d'ail",
-    section: "Maraîcher"
-  },
-  {
-    name: "Gingembre frais",
-    section: "Maraîcher"
-  },
-  {
-    name: "Concombre",
-    section: "Maraîcher"
-  },
-  {
-    name: "Dés de poulet",
-    section: "Boucherie"
-  },
-  {
-    name: "Nouilles udon fraîches",
-    section: "Epicerie"
-  },
-  {
-    name: "Noix de cajou",
-    section: "Epicerie"
-  },
-  {
-    name: "Sauce asiatique douce",
-    section: "Epicerie"
-  },
-  {
-    name: "Oignon rouge",
-    section: "Maraîcher"
-  },
-  {
-    name: "Mesclun",
-    section: "Maraîcher"
-  },
-  {
-    name: "Mozzarella di Bufala",
-    section: "Fromagerie"
-  },
-  {
-    name: "Fromage italien râpé",
-    section: "Fromagerie"
-  },
-  {
-    name: "Origan séché",
-    section: "Epicerie"
-  },
-  {
-    name: "Pain naan",
-    section: "Epicerie"
-  }
-]
+filepath = File.join(Rails.root, 'db', 'ingredients.json')
+serialized_ingredients = File.read(filepath)
+ingredients = JSON.parse(serialized_ingredients)
 
 ingredients.each do |attributes|
   ingredient = Ingredient.create!(attributes)
@@ -112,55 +77,56 @@ puts "########## Ingredients created! ##########"
 puts "########## Creating doses... ##########"
 puts "########## Recipe #1 - Nouilles udon au poulet, sauce & noix de cajou ##########"
 recipe = Recipe.find_by(name: recipes[0][:name])
-ingredients = [
+puts "############################## #{recipe.name}"
+doses = [
   {
     name: "Champignons de Paris",
-    quantity: 250,
+    quantity: 125,
     unit: "g"
   },
   {
     name: "Oignon nouveau",
-    quantity: 3,
+    quantity: 1.5,
     unit: "pièce"
   },
   {
     name: "Gousse d'ail",
-    quantity: 1,
-    unit: "pièce"
-  },
-  {
-    name: "Gingembre frais",
-    quantity: 2,
-    unit: "cm"
-  },
-  {
-    name: "Concombre",
     quantity: 0.5,
     unit: "pièce"
   },
   {
-    name: "Dés de poulet",
-    quantity: 200,
+    name: "Gingembre frais",
+    quantity: 1,
+    unit: "cm"
+  },
+  {
+    name: "Concombre",
+    quantity: 0.25,
+    unit: "pièce"
+  },
+  {
+    name: "Dés de filet de poulet",
+    quantity: 100,
     unit: "g"
   },
   {
     name: "Nouilles udon fraîches",
-    quantity: 400,
+    quantity: 200,
     unit: "g"
   },
   {
     name: "Noix de cajou",
-    quantity: 10,
+    quantity: 5,
     unit: "g"
   },
   {
     name: "Sauce asiatique douce",
-    quantity: 70,
+    quantity: 35,
     unit: "g"
   }
 ]
 
-ingredients.each do |attributes|
+doses.each do |attributes|
   ingredient = Ingredient.find_by(name: attributes[:name])
   Dose.create!(
     recipe_id: recipe.id,
@@ -173,50 +139,50 @@ puts "########## Doses for recipe #1 created! ##########"
 
 puts "########## Recipe #2 - Pizza bianca aux champignons poêlés ##########"
 recipe = Recipe.find_by(name: recipes[1][:name])
-ingredients = [
+doses = [
   {
     name: "Champignons de Paris",
-    quantity: 250,
-    unit: "g"
-  },
-  {
-    name: "Gousse d'ail",
-    quantity: 2,
-    unit: "pièce"
-  },
-  {
-    name: "Oignon rouge",
-    quantity: 1,
-    unit: "pièce"
-  },
-  {
-    name: "Mozzarella di Bufala",
     quantity: 125,
     unit: "g"
   },
   {
+    name: "Gousse d'ail",
+    quantity: 1,
+    unit: "pièce"
+  },
+  {
+    name: "Oignon rouge",
+    quantity: 0.5,
+    unit: "pièce"
+  },
+  {
+    name: "Mozzarella di Bufala",
+    quantity: 62.5,
+    unit: "g"
+  },
+  {
     name: "Pain naan",
-    quantity: 2,
+    quantity: 1,
     unit: "pièce"
   },
   {
     name: "Fromage italien râpé",
-    quantity: 50,
+    quantity: 25,
     unit: "g"
   },
   {
     name: "Origan séché",
-    quantity: 2,
+    quantity: 1,
     unit: "cc"
   },
   {
     name: "Mesclun",
-    quantity: 60,
+    quantity: 30,
     unit: "g"
   }
 ]
 
-ingredients.each do |attributes|
+doses.each do |attributes|
   ingredient = Ingredient.find_by(name: attributes[:name])
   Dose.create!(
     recipe_id: recipe.id,
@@ -226,4 +192,177 @@ ingredients.each do |attributes|
   )
 end
 puts "########## Doses for recipe #2 created! ##########"
+
+puts "########## Recipe #3 - Cabillaud à la meunière et sauce au beurre & câpres ##########"
+recipe = Recipe.find_by(name: recipes[2][:name])
+doses = [
+  {
+    name: "Pommes de terre à chair fondante",
+    quantity: 250,
+    unit: "g"
+  },
+  {
+    name: "Poireau",
+    quantity: 0.5,
+    unit: "pièce"
+  },
+  {
+    name: "Haricots verts",
+    quantity: 75,
+    unit: "g"
+  },
+  {
+    name: "Echalote",
+    quantity: 0.5,
+    unit: "pièce"
+  },
+  {
+    name: "Gousse d'ail",
+    quantity: 0.5,
+    unit: "pièce"
+  },
+  {
+    name: "Citron vert",
+    quantity: 0.25,
+    unit: "pièce"
+  },
+  {
+    name: "Persil plat frais",
+    quantity: 5,
+    unit: "g"
+  },
+  {
+    name: "Filet de cabillaud",
+    quantity: 1,
+    unit: "pièce"
+  },
+  {
+    name: "Câpres",
+    quantity: 10,
+    unit: "g"
+  }
+]
+
+doses.each do |attributes|
+  ingredient = Ingredient.find_by(name: attributes[:name])
+  Dose.create!(
+    recipe_id: recipe.id,
+    ingredient_id: ingredient.id,
+    quantity: attributes[:quantity],
+    unit: attributes[:unit]
+  )
+end
+puts "########## Doses for recipe #3 created! ##########"
+
+puts "########## Recipe #4 - Steak haché et purée de patate douce épicée ##########"
+recipe = Recipe.find_by(name: recipes[3][:name])
+doses = [
+  {
+    name: "Patates douces",
+    quantity: 250,
+    unit: "g"
+  },
+  {
+    name: "Pommes de terre à chair farineuse",
+    quantity: 100,
+    unit: "g"
+  },
+  {
+    name: "Gousse d'ail",
+    quantity: 0.5,
+    unit: "pièce"
+  },
+  {
+    name: "Piment rouge",
+    quantity: 0.5,
+    unit: "pièce"
+  },
+  {
+    name: "Oignon nouveau",
+    quantity: 2,
+    unit: "pièce"
+  },
+  {
+    name: "Haricots verts",
+    quantity: 150,
+    unit: "g"
+  },
+  {
+    name: "Graines de courge",
+    quantity: 5,
+    unit: "g"
+  },
+  {
+    name: "Viande de bœuf hachée",
+    quantity: 1,
+    unit: "pièce"
+  },
+  {
+    name: "Paprika en poudre",
+    quantity: 0.75,
+    unit: "cc"
+  }
+]
+
+doses.each do |attributes|
+  ingredient = Ingredient.find_by(name: attributes[:name])
+  Dose.create!(
+    recipe_id: recipe.id,
+    ingredient_id: ingredient.id,
+    quantity: attributes[:quantity],
+    unit: attributes[:unit]
+  )
+end
+puts "########## Doses for recipe #4 created! ##########"
+
+puts "########## Recipe #5 - Farfalle & pesto aux champignons des bois ##########"
+recipe = Recipe.find_by(name: recipes[4][:name])
+doses = [
+  {
+    name: "Farfalle",
+    quantity: 90,
+    unit: "g"
+  },
+  {
+    name: "Echalote",
+    quantity: 0.5,
+    unit: "pièce"
+  },
+  {
+    name: "Champignons de Paris",
+    quantity: 125,
+    unit: "g"
+  },
+  {
+    name: "Pesto aux champignons des bois",
+    quantity: 40,
+    unit: "g"
+  },
+  {
+    name: "Mâche",
+    quantity: 20,
+    unit: "g"
+  },
+  {
+    name: "Persil frisé frais",
+    quantity: 2.5,
+    unit: "g"
+  },
+  {
+    name: "Pecorino râpé",
+    quantity: 12.5,
+    unit: "g"
+  }
+]
+
+doses.each do |attributes|
+  ingredient = Ingredient.find_by(name: attributes[:name])
+  Dose.create!(
+    recipe_id: recipe.id,
+    ingredient_id: ingredient.id,
+    quantity: attributes[:quantity],
+    unit: attributes[:unit]
+  )
+end
+puts "########## Doses for recipe #5 created! ##########"
 puts "########## Doses created! ##########"
