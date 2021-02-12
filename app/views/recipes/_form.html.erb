@@ -1,32 +1,35 @@
-<%= simple_form_for(@recipe, remote: true, html: { class: "my-form" }) do |f| %>
+<%= simple_form_for recipe,
+                    remote: true,
+                    html: { class: "my-form" } do |f|
+%>
   <%=
     f.input :name,
-    required: false
+            required: false
   %>
   <%=
     f.input :photo,
-    required: false
+            required: false
   %>
   <%=
     f.input :cooking_time,
-    label: "Temps de préparation (en minutes)",
-    input_html: { min: 1, class: "col-3" }
+            label: "Temps de préparation (en minutes)",
+            input_html: { min: 1, class: "col-3" }
   %>
   <%=
     f.input :week_nb,
-    input_html: { min: 1, max: 53, class: "col-3" }
+            input_html: { min: 1, max: 53, class: "col-3" }
   %>
   <%=
     f.input :season,
-    collection: Recipe::SEASONS,
-    as: :radio_buttons,
-    wrapper: "custom_collection_inline"
+            collection: Recipe::SEASONS,
+            as: :radio_buttons,
+            wrapper: "custom_collection_inline"
   %>
   <%=
     f.input :category,
-    collection: Recipe::CATEGORIES,
-    as: :radio_buttons,
-    wrapper: "custom_collection_inline"
+            collection: Recipe::CATEGORIES,
+            as: :radio_buttons,
+            wrapper: "custom_collection_inline"
   %>
   <%= f.submit t("form.next"), class: "btn btn-danger col-4 offset-4 my-4" %>
 <% end %>

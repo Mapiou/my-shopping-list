@@ -42,33 +42,13 @@
           </table>
         </div>
 
-        <!-- Ingredients form -->
+        <!-- Doses form -->
         <div class="col-md-8 col-lg-5 mt-4 mt-lg-0">
           <h5 class="h-deco-bottom">
             Ajouter un ingrédient
             <em>—</em>
           </h5>
-          <%= simple_form_for([@recipe, @dose],
-                              remote: true,
-                              html: { class: "form-row my-form" }) do |f|
-          %>
-            <%=
-              f.association :ingredient, collection: Ingredient.order("name"),
-              required: false,
-              wrapper_html: { class: "col-12" }
-            %>
-            <%=
-              f.input :quantity,
-              input_html: { min: 0 },
-              wrapper_html: { class: "col-4" }
-            %>
-            <%=
-              f.input :unit,
-              collection: Dose::UNITS,
-              wrapper_html: { class: "col-8" }
-            %>
-            <%= f.submit t("form.add"), class: "btn btn-danger col-6 offset-3 mt-3" %>
-          <% end %>
+          <%= render "doses/form", recipe: @recipe, dose: @dose %>
         </div>
       </div>
 

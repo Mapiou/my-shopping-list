@@ -11,6 +11,7 @@ fr:
     next: "Continuer"
     add: "Ajouter"
     change: "Modifier"
+    search: "Rechercher"
 
   activerecord:
     models:
