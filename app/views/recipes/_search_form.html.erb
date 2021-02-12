@@ -1,0 +1,13 @@
+<%= simple_form_for :query,
+                    url: recipes_path,
+                    method: "GET",
+                    html: { class: 'form-inline' } do |f|
+%>
+  <%=
+    f.input :name,
+            label: false,
+            required: false,
+            input_html: { value: "" }
+  %>
+  <%= f.submit t("form.search"), class: "btn btn-danger" %>
+<% end %>

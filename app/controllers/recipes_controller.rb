@@ -2,8 +2,15 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: %i[show edit update destroy]
 
   def index
-    @recipes = Recipe.all
     @shopping_lists = ShoppingList.all.map { |item| [item.recipe_id, item.quantity] }.to_h
+
+    @query = params['query']
+    @name = @query['name']
+    if @name.present?
+      @recipes = Recipe.where("name ILIKE ?", "%#{@name}%")
+    else
+      @recipes = Recipe.all
+    end
   end
 
   def new
