@@ -20,9 +20,10 @@
             <div class="card mb-3">
               <div class="row no-gutters">
                 <div class="col-sm-3 col-xl-2 overflow-hidden">
-                  <%= link_to image_tag("#{item.recipe.photo}", class: "card-img-top img-xs-truncate"),
-                          "#",
-                          data: { toggle: "modal", target: "#ingredientsListModal" }
+                  <%= link_to image_tag("#{item.recipe.photo}",
+                              class: "card-img-top img-xs-truncate"),
+                              "#",
+                              data: { toggle: "modal", target: "#ingredientsListModal" }
                   %>
                 </div>
                 <div class="col-sm-9 col-xl-10">
@@ -30,12 +31,22 @@
                     <div class="float-right font-weight-bold">
                       <%= "x#{item.quantity} portion(s)" %>
                     </div>
-                    <h5 class="card-title text-truncate mb-1"><%= item.recipe.name %></h5>
+                    <h5 class="card-title text-truncate mb-1">
+                      <%= item.recipe.name %>
+                    </h5>
                     <div class="card-text">
-                      <span class="badge badge-danger text-white"><%= item.recipe.season %></span>
-                      <span class="badge badge-warning text-white"><%= item.recipe.category %></span>
-                      <span class="badge badge-info text-white"><%= item.recipe.cooking_time %> minutes</span>
-                      <span class="badge badge-success text-white">Semaine <%= item.recipe.week_nb %></span>
+                      <span class="badge badge-danger text-white">
+                        <%= item.recipe.season %>
+                      </span>
+                      <span class="badge badge-warning text-white">
+                        <%= item.recipe.category %>
+                      </span>
+                      <span class="badge badge-info text-white">
+                        <%= item.recipe.cooking_time %> minutes
+                      </span>
+                      <span class="badge badge-success text-white">
+                        Semaine <%= item.recipe.week_nb %>
+                      </span>
 
                       <!-- Button trigger modal -->
                       <%= link_to "...",
@@ -53,11 +64,21 @@
                         aria-labelledby="ingredientsListModalTitle"
                         aria-hidden="true"
                       >
-                        <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+                        <div
+                          class="modal-dialog modal-dialog-centered modal-sm"
+                          role="document"
+                        >
                           <div class="modal-content">
                             <div class="modal-header">
-                              <h5 class="modal-title" id="ingredientsListModalTitle">Liste des ingrédients</h5>
-                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <h5 class="modal-title" id="ingredientsListModalTitle">
+                                Liste des ingrédients
+                              </h5>
+                              <button
+                                type="button"
+                                class="close"
+                                data-dismiss="modal"
+                                aria-label="Close"
+                              >
                                 <span aria-hidden="true">&times;</span>
                               </button>
                             </div>

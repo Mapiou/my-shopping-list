@@ -1,20 +1,29 @@
 <% content_for :title, "Mes recettes" %>
 
 <div class="container">
-  <div class="h-deco-left">
-    <h1>Mes recettes</h1>
-    <p>
-      <%= t("plurals.selected_recipes", count: @shopping_lists.size) %>
-      <span class="d-none d-sm-inline">dans ma liste de courses</span>
-      <% if @shopping_lists.size > 0 %>
-        <i class="fas fa-clipboard-check"></i>
-      <% else %>
-        <i class="fas fa-info-circle" title="Vous n'avez pas sélectionné de recettes."></i>
-      <% end %>
-    </p>
-  </div>
-
-  <div class="my-5">
+  <div class="d-flex
+              flex-column
+              flex-lg-row
+              justify-content-lg-between
+              align-items-lg-center">
+    <div class="h-deco-left">
+      <h1>Mes recettes</h1>
+      <p>
+        <%= t("plurals.selected_recipes", count: @shopping_lists.size) %>
+        <span class="d-none d-sm-inline">dans </span>
+        <%= link_to shopping_lists_path, class: "text-decoration-none" do %>
+          <span class="d-none d-sm-inline">ma liste de courses</span>
+          <% if @shopping_lists.size > 0 %>
+            <i class="fas fa-clipboard-check"></i>
+          <% else %>
+            <i
+              class="fas fa-info-circle"
+              title="Vous n'avez pas sélectionné de recettes."
+            ></i>
+          <% end %>
+        <% end %>
+      </p>
+    </div>
     <%= render "search_form" %>
   </div>
 
@@ -33,9 +42,15 @@
           <div class="card-body">
             <h5 class="card-title"><%= recipe.name %></h5>
             <div class="card-text">
-              <span class="badge badge-danger text-white"><%= recipe.season %></span>
-              <span class="badge badge-warning text-white"><%= recipe.category %></span>
-              <span class="badge badge-info text-white"><%= recipe.cooking_time %> minutes</span>
+              <span class="badge badge-danger text-white">
+                <%= recipe.season %>
+              </span>
+              <span class="badge badge-warning text-white">
+                <%= recipe.category %>
+              </span>
+              <span class="badge badge-info text-white">
+                <%= recipe.cooking_time %> minutes
+              </span>
 
               <!-- Button trigger modal -->
               <%= link_to "...",
@@ -56,8 +71,15 @@
                 <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="ingredientsListModalTitle">Liste des ingrédients</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <h5 class="modal-title" id="ingredientsListModalTitle">
+                        Liste des ingrédients
+                      </h5>
+                      <button
+                        type="button"
+                        class="close"
+                        data-dismiss="modal"
+                        aria-label="Close"
+                      >
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>

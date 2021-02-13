@@ -4,10 +4,14 @@ class RecipesController < ApplicationController
   def index
     @shopping_lists = ShoppingList.all.map { |item| [item.recipe_id, item.quantity] }.to_h
 
-    @query = params['query']
-    @name = @query['name']
-    if @name.present?
-      @recipes = Recipe.where("name ILIKE ?", "%#{@name}%")
+    @query = params[:query]
+    if @query.present?
+      sql_query = " \
+        name @@ :query \
+        OR season @@ :query \
+        OR category @@ :query \
+      "
+      @recipes = Recipe.where(sql_query, query: @query)
     else
       @recipes = Recipe.all
     end
