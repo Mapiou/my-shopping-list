@@ -1,13 +1,14 @@
-<%= simple_form_for :query,
-                    url: recipes_path,
-                    method: "GET",
-                    html: { class: 'form-inline' } do |f|
+<%= form_tag  recipes_path,
+              method: :get,
+              class: "form-inline flex-nowrap mb-4 mb-lg-0" do
 %>
-  <%=
-    f.input :name,
-            label: false,
-            required: false,
-            input_html: { value: "" }
+  <%= text_field_tag :query,
+    params[:query],
+    value: "",
+    class: "form-control",
+    placeholder: "Ex : poulet, hiver..."
   %>
-  <%= f.submit t("form.search"), class: "btn btn-danger" %>
+  <%= button_tag type: "submit", class: "btn btn-danger" do %>
+      <i class="fas fa-search"></i>
+  <% end %>
 <% end %>
