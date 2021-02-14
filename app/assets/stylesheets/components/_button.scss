@@ -1,26 +1,43 @@
-.btn-ghost {
-  color: #4A4A4A;
-  border: 1px solid #4A4A4A;
-  padding: 8px 24px;
-  border-radius: 50px;
-  font-weight: lighter;
-  opacity: 0.6;
-  transition: opacity 0.3s ease;
-}
+.btn-to-up {
+  position: fixed;
+  top: 50vh;
+  right: 0;
+  padding: 0.8rem 0.5rem 0.8rem 1rem;
+  border-radius: 10% 0 0 10%;
+  background-color: white;
+  opacity: 0.9;
 
-.btn-ghost:hover {
-  opacity: 1;
-}
+  @include media-breakpoint-up(sm) {
+    padding: 0.8rem 0.5rem 0.8rem 1rem;
+  }
 
-.btn-flat {
-  color: white;
-  padding: 8px 24px;
-  border-radius: 4px;
-  background: $raspberry;
-  transition: background 0.3s ease;
-}
+  a {
+    display: flex;
+    align-items: center;
+    color: $danger;
+    opacity: 1;
+    text-decoration: none;
 
-.btn-flat:hover {
-  background: $raspberry;
-  color: white;
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+
+  i:first-child {
+    font-size: 1.5rem;
+    margin-right: 0.3rem;
+
+    @include media-breakpoint-up(sm) {
+      font-size: 2rem;
+      margin-right: 0.5rem;
+    }
+  }
+
+  i:last-child {
+    font-size: 0.6rem;
+
+    @include media-breakpoint-up(sm) {
+      font-size: 0.8rem;
+    }
+  }
 }
