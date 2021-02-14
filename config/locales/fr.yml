@@ -6,6 +6,9 @@ fr:
     selected_recipes:
       one: "%{count} recette sélectionnée"
       other: "%{count} recettes sélectionnées"
+    items:
+      one: "pièce"
+      other: "pièces"
 
   form:
     next: "Continuer"

@@ -23,7 +23,7 @@ class ShoppingListsController < ApplicationController
     end
 
     @sorted_ingredients = ingredients.transform_values do |doses|
-      doses.sort_by { |_id, ingredient| ingredient[:name] }.to_h
+      doses.sort_by { |_id, dose| dose[:name] }.to_h
     end
   end
 

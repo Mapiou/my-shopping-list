@@ -1,5 +1,5 @@
 class Dose < ApplicationRecord
-  UNITS = ['g', 'pièce', 'cm', 'ml', 'cs', 'cc']
+  UNITS = %w[g pièce ml cs cc cm]
 
   belongs_to :recipe
   belongs_to :ingredient

@@ -120,11 +120,12 @@
                   <tr>
                     <th scope="col" class="pt-4"><%= section %></th>
                   </tr>
-                  <% doses.each do |id, ingredient| %>
+                  <% doses.each do |id, dose| %>
                     <tr>
-                      <td scope="row"><%= ingredient[:name] %></td>
+                      <td scope="row"><%= dose[:name] %></td>
                       <td>
-                        <%= "#{format_quantity(ingredient[:quantity])} #{ingredient[:unit]}" %>
+                        <%= format_quantity(dose[:quantity]) %>
+                        <%= format_unit(dose[:quantity], dose[:unit]) %>
                       </td>
                       <td>
                         <label class="my-checkbox">

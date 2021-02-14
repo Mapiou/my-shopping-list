@@ -26,7 +26,10 @@
               <% @recipe.doses.each do |dose| %>
                 <tr id="dose-<%= dose.id %>">
                   <td scope="row"><%= dose.ingredient.name %></td>
-                  <td><%= "#{format_quantity(dose.quantity)} #{dose.unit}" %></td>
+                  <td>
+                    <%= format_quantity(dose.quantity) %>
+                    <%= format_unit(dose.quantity, dose.unit) %>
+                  </td>
                   <td>
                     <%= link_to dose_path(dose),
                                 class: "mx-2",

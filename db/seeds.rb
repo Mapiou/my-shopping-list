@@ -21,7 +21,7 @@ recipes = [
     cooking_time: 20,
     week_nb: 49,
     season: "Hiver",
-    category: "Viande"
+    category: "Viande blanche"
   },
   {
     name: "Pizza bianca aux champignons poêlés",
@@ -45,7 +45,7 @@ recipes = [
     cooking_time: 30,
     week_nb: 49,
     season: "Hiver",
-    category: "Viande"
+    category: "Viande rouge"
   },
   {
     name: "Farfalle & pesto aux champignons des bois",
