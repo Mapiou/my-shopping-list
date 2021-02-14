@@ -1,6 +1,6 @@
 class Recipe < ApplicationRecord
-  SEASONS = ['Hiver', 'Printemps', 'Eté', 'Automne']
-  CATEGORIES = ['Végétarien', 'Poisson', 'Viande']
+  SEASONS = %w[Hiver Printemps Été Automne]
+  CATEGORIES = %w[Poisson Végétarien Viande\ blanche Viande\ rouge]
 
   has_many :doses, dependent: :destroy
   has_many :ingredients, through: :doses
