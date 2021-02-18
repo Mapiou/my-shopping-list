@@ -4,7 +4,7 @@
   <!-- Recipe card -->
   <div class="card my-4">
     <div class="overflow-hidden">
-      <%= image_tag "#{@recipe.photo}", class: "card-img-top img-truncate" %>
+      <%= cl_image_tag "#{@recipe.photo.key}", class: "card-img-top img-truncate" %>
     </div>
     <div class="card-body">
       <h4 class="card-title"><%= @recipe.name %></h4>
