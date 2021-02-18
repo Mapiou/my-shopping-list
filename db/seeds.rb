@@ -58,13 +58,18 @@ recipes = [
 ]
 
 recipes.each do |attributes|
-  recipe = Recipe.create!(attributes)
+  recipe = Recipe.new(attributes)
+  filepath = File.join(Rails.root, 'db', 'data', attributes[:photo])
+  recipe.photo.attach(io: File.open(filepath),
+                      filename: attributes[:photo],
+                      content_type: 'image/jpg')
+  recipe.save!
   puts "Created #{recipe.name}"
 end
 puts "########## Recipes created! ##########"
 
 puts "########## Creating ingredients... ##########"
-filepath = File.join(Rails.root, 'db', 'ingredients.json')
+filepath = File.join(Rails.root, 'db', 'data', 'ingredients.json')
 serialized_ingredients = File.read(filepath)
 ingredients = JSON.parse(serialized_ingredients)
 
