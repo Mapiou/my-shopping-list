@@ -37,6 +37,7 @@ gem 'turbolinks_render'
 gem 'cloudinary', '~> 1.16.0'
 # Use Devise for authentication
 gem 'devise'
+gem 'devise-i18n'
 
 group :development, :test do
   gem 'pry-byebug'
