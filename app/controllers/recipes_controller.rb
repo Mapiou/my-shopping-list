@@ -2,18 +2,21 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: %i[show edit update destroy]
 
   def index
-    @shopping_lists = ShoppingList.all.map { |item| [item.recipe_id, item.quantity] }.to_h
+    @shopping_lists = ShoppingList.where(user: current_user).map do |item|
+      [item.recipe_id, item.quantity]
+    end.to_h
 
     @query = params[:query]
     if @query.present?
       sql_query = " \
-        name @@ :query \
+        user = :user AND \
+        (name @@ :query \
         OR season @@ :query \
-        OR category @@ :query \
+        OR category @@ :query) \
       "
-      @recipes = Recipe.where(sql_query, query: @query)
+      @recipes = Recipe.where(sql_query, { user: current_user, query: @query })
     else
-      @recipes = Recipe.all
+      @recipes = Recipe.where(user: current_user)
     end
   end
 
@@ -23,6 +26,7 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(recipe_params)
+    @recipe.user = current_user
     if @recipe.save
       redirect_to recipe_path(@recipe)
     else
