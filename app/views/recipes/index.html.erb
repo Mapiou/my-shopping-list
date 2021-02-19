@@ -103,18 +103,19 @@
 
             <hr />
 
-            <!-- Add/Delete servings buttons -->
+            <!-- Add/Remove servings buttons -->
             <div class="d-flex
                         justify-content-center
                         align-items-center
                         justify-content-lg-between"
             >
-              <%= link_to "-",
-                          recipe_shopping_list_path(recipe, 0),
+              <%= link_to recipe_shopping_list_path(recipe, 0),
                           class: "btn btn-primary font-weight-bold text-white px-3 px-lg-4",
                           method: :patch,
-                          remote: true
+                          remote: true do
               %>
+                <i class="fas fa-minus"></i>
+              <% end %>
 
               <span class="px-3">
                 <%= @shopping_lists[recipe.id] ||= 0 %>
@@ -123,12 +124,13 @@
                 </span>
               </span>
 
-              <%= link_to "+",
-                          recipe_shopping_lists_path(recipe),
+              <%= link_to recipe_shopping_lists_path(recipe),
                           class: "btn btn-primary font-weight-bold text-white px-3 px-lg-4",
                           method: :post,
-                          remote: true
+                          remote: true do
               %>
+                <i class="fas fa-plus"></i>
+              <% end %>
             </div>
           </div>
 
