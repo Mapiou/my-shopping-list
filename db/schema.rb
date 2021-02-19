@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_18_165939) do
+ActiveRecord::Schema.define(version: 2021_02_19_161438) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,8 @@ ActiveRecord::Schema.define(version: 2021_02_18_165939) do
     t.string "section"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_ingredients_on_user_id"
   end
 
   create_table "recipes", force: :cascade do |t|
@@ -62,6 +64,8 @@ ActiveRecord::Schema.define(version: 2021_02_18_165939) do
     t.string "category"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 
   create_table "shopping_lists", force: :cascade do |t|
@@ -69,7 +73,9 @@ ActiveRecord::Schema.define(version: 2021_02_18_165939) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "recipe_id"
     t.integer "quantity"
+    t.bigint "user_id"
     t.index ["recipe_id"], name: "index_shopping_lists_on_recipe_id"
+    t.index ["user_id"], name: "index_shopping_lists_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -87,4 +93,7 @@ ActiveRecord::Schema.define(version: 2021_02_18_165939) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "doses", "ingredients"
   add_foreign_key "doses", "recipes"
+  add_foreign_key "ingredients", "users"
+  add_foreign_key "recipes", "users"
+  add_foreign_key "shopping_lists", "users"
 end

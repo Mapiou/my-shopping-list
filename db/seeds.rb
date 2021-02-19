@@ -11,7 +11,12 @@ ShoppingList.destroy_all
 Dose.destroy_all
 Recipe.destroy_all
 Ingredient.destroy_all
+User.destroy_all
 puts "########## Database cleaned! ##########"
+
+puts "########## Creating users... ##########"
+marion = User.create!(email: "marionlambert85@gmail.com", password: "azerty")
+puts "########## Users created! ##########"
 
 puts "########## Creating recipes... ##########"
 recipes = [
@@ -63,6 +68,7 @@ recipes.each do |attributes|
   recipe.photo.attach(io: File.open(filepath),
                       filename: attributes[:photo],
                       content_type: 'image/jpg')
+  recipe.user = marion
   recipe.save!
   puts "Created #{recipe.name}"
 end
@@ -74,7 +80,9 @@ serialized_ingredients = File.read(filepath)
 ingredients = JSON.parse(serialized_ingredients)
 
 ingredients.each do |attributes|
-  ingredient = Ingredient.create!(attributes)
+  ingredient = Ingredient.new(attributes)
+  ingredient.user = marion
+  ingredient.save!
   puts "Created #{ingredient.name}"
 end
 puts "########## Ingredients created! ##########"
@@ -134,8 +142,8 @@ doses = [
 doses.each do |attributes|
   ingredient = Ingredient.find_by(name: attributes[:name])
   Dose.create!(
-    recipe_id: recipe.id,
-    ingredient_id: ingredient.id,
+    recipe: recipe,
+    ingredient: ingredient,
     quantity: attributes[:quantity],
     unit: attributes[:unit]
   )
@@ -190,8 +198,8 @@ doses = [
 doses.each do |attributes|
   ingredient = Ingredient.find_by(name: attributes[:name])
   Dose.create!(
-    recipe_id: recipe.id,
-    ingredient_id: ingredient.id,
+    recipe: recipe,
+    ingredient: ingredient,
     quantity: attributes[:quantity],
     unit: attributes[:unit]
   )
@@ -251,8 +259,8 @@ doses = [
 doses.each do |attributes|
   ingredient = Ingredient.find_by(name: attributes[:name])
   Dose.create!(
-    recipe_id: recipe.id,
-    ingredient_id: ingredient.id,
+    recipe: recipe,
+    ingredient: ingredient,
     quantity: attributes[:quantity],
     unit: attributes[:unit]
   )
@@ -312,8 +320,8 @@ doses = [
 doses.each do |attributes|
   ingredient = Ingredient.find_by(name: attributes[:name])
   Dose.create!(
-    recipe_id: recipe.id,
-    ingredient_id: ingredient.id,
+    recipe: recipe,
+    ingredient: ingredient,
     quantity: attributes[:quantity],
     unit: attributes[:unit]
   )
@@ -363,8 +371,8 @@ doses = [
 doses.each do |attributes|
   ingredient = Ingredient.find_by(name: attributes[:name])
   Dose.create!(
-    recipe_id: recipe.id,
-    ingredient_id: ingredient.id,
+    recipe: recipe,
+    ingredient: ingredient,
     quantity: attributes[:quantity],
     unit: attributes[:unit]
   )

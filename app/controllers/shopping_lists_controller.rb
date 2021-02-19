@@ -2,7 +2,7 @@ class ShoppingListsController < ApplicationController
   before_action :set_recipe, only: %i[create update]
 
   def index
-    @shopping_lists = ShoppingList.all
+    @shopping_lists = ShoppingList.where(user: current_user)
     ingredients = Ingredient::SECTIONS.map { |section| [section, {}] }.to_h
 
     @shopping_lists.each do |item|
@@ -31,7 +31,7 @@ class ShoppingListsController < ApplicationController
     @item = ShoppingList.find_by(recipe: @recipe)
 
     if @item.nil?
-      ShoppingList.create(recipe: @recipe, quantity: 1)
+      ShoppingList.create(recipe: @recipe, quantity: 1, user: current_user)
     else
       @item.update(quantity: @item.quantity + 1)
     end

@@ -2,7 +2,7 @@ class IngredientsController < ApplicationController
   before_action :set_ingredient, only: %i[edit update]
 
   def index
-    @ingredients = Ingredient.order("name")
+    @ingredients = Ingredient.where(user: current_user).order("name")
   end
 
   def new
@@ -11,6 +11,7 @@ class IngredientsController < ApplicationController
 
   def create
     @ingredient = Ingredient.new(ingredient_params)
+    @ingredient.user = current_user
     if @ingredient.save
       redirect_to ingredients_path
     else

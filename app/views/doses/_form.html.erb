@@ -3,7 +3,7 @@
                     html: { class: "form-row my-form" } do |f|
 %>
   <%=
-    f.association :ingredient, collection: Ingredient.order("name"),
+    f.association :ingredient, collection: Ingredient.where(user: current_user).order("name"),
                   required: false,
                   wrapper_html: { class: "col-12" }
   %>
