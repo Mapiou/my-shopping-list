@@ -5,6 +5,5 @@ class Ingredient < ApplicationRecord
   belongs_to :user
 
   validates :name, uniqueness: true, presence: true
-  validates :section,
-            inclusion: { in: SECTIONS }
+  validates :section, inclusion: { in: SECTIONS }
 end

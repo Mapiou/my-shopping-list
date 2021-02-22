@@ -8,7 +8,7 @@ class Recipe < ApplicationRecord
   has_one_attached :photo
   belongs_to :user
 
-  validates :name, presence: true
+  validates :name, :photo, presence: true
   validates :cooking_time,
             numericality: { only_integer: true, greater_than: 0 }
   validates :week_nb,
