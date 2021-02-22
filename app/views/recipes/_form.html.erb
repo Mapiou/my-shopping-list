@@ -8,7 +8,10 @@
   %>
   <%=
     f.input :photo,
-            as: :file
+            required: false,
+            as: :file,
+            hint: "Fichier .jpg de 1 Mo max au format paysage uniquement",
+            input_html: { accept: ("image/jpg, image/jpeg") }
   %>
   <%=
     f.input :cooking_time,
