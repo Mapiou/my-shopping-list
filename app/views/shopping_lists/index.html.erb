@@ -20,8 +20,14 @@
             <div class="card mb-3">
               <div class="row no-gutters">
                 <div class="col-sm-3 col-xl-2 overflow-hidden">
-                  <%= link_to cl_image_tag("#{item.recipe.photo.key}",
-                              class: "card-img-top img-xs-truncate"),
+                  <%= link_to cl_image_tag( "#{item.recipe.photo.key}",
+                                            width: 600,
+                                            aspect_ratio: 1.5,
+                                            crop: :fill,
+                                            quality: :auto,
+                                            fetch_format: :auto,
+                                            class: "card-img-top img-xs-truncate"
+                              ),
                               "#",
                               data: { toggle: "modal", target: "#ingredientsListModal" }
                   %>
