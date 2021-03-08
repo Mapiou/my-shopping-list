@@ -44,7 +44,10 @@
                                     class: "card-img-top"
                       ),
                       "#",
-                      data: { toggle: "modal", target: "#ingredientsListModal" }
+                      data: {
+                        toggle: "modal",
+                        target: "#ingredientsListModal-#{recipe.photo.key}"
+                      }
           %>
           <div class="card-body">
             <h5 class="card-title"><%= recipe.name %></h5>
@@ -63,13 +66,16 @@
               <%= link_to "...",
                           "#",
                           class: "badge badge-secondary",
-                          data: { toggle: "modal", target: "#ingredientsListModal" }
+                          data: {
+                            toggle: "modal",
+                            target: "#ingredientsListModal-#{recipe.photo.key}"
+                          }
               %>
 
               <!-- Modal -->
               <div
                 class="modal text-left fade"
-                id="ingredientsListModal"
+                id=<%= "ingredientsListModal-#{recipe.photo.key}" %>
                 tabindex="-1"
                 role="dialog"
                 aria-labelledby="ingredientsListModalTitle"
