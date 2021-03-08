@@ -12,6 +12,17 @@
               Modifier ma sélection
             <% end %>
           </p>
+          <p>
+            <%= link_to shopping_lists_path,
+                        class: "text-decoration-none",
+                        method: :delete,
+                        remote: true,
+                        data: { confirm: "Etes-vous sûr de vouloir supprimer votre sélection ?" } do
+            %>
+              <i class="fas fa-trash"></i>
+              Supprimer ma sélection
+            <% end %>
+          </p>
         </div>
         <div class="card-body px-4 pt-0 pb-4">
           <!-- Selected recipes list -->
