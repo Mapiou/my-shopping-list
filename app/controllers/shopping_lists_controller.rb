@@ -50,6 +50,12 @@ class ShoppingListsController < ApplicationController
     redirect_to recipes_path(anchor: "recipe-#{@recipe.id}")
   end
 
+  def destroy_all
+    ShoppingList.where(user: current_user).destroy_all
+
+    redirect_to recipes_path
+  end
+
   private
 
   def set_recipe
