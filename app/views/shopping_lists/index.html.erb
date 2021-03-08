@@ -40,7 +40,10 @@
                                             class: "card-img-top img-xs-truncate"
                               ),
                               "#",
-                              data: { toggle: "modal", target: "#ingredientsListModal" }
+                              data: {
+                                toggle: "modal",
+                                target: "#ingredientsListModal-#{item.recipe.photo.key}"
+                              }
                   %>
                 </div>
                 <div class="col-sm-9 col-xl-10">
@@ -69,13 +72,16 @@
                       <%= link_to "...",
                                   "#",
                                   class: "badge badge-secondary",
-                                  data: { toggle: "modal", target: "#ingredientsListModal" }
+                                  data: {
+                                    toggle: "modal",
+                                    target: "#ingredientsListModal-#{item.recipe.photo.key}"
+                                  }
                       %>
 
                       <!-- Modal -->
                       <div
                         class="modal text-left fade"
-                        id="ingredientsListModal"
+                        id=<%= "ingredientsListModal-#{item.recipe.photo.key}" %>
                         tabindex="-1"
                         role="dialog"
                         aria-labelledby="ingredientsListModalTitle"
