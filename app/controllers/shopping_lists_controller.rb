@@ -15,9 +15,11 @@ class ShoppingListsController < ApplicationController
         if ingredients[section].key?(ingredient_id) && ingredients[section][ingredient_id][:unit] == unit
           ingredients[section][ingredient_id][:quantity] += quantity
         else
-          ingredients[section][ingredient_id] = { name: dose.ingredient.name,
-                                                  quantity: quantity,
-                                                  unit: unit }
+          ingredients[section][ingredient_id] = {
+            name: dose.ingredient.name,
+            quantity: quantity,
+            unit: unit
+          }
         end
       end
     end
