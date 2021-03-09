@@ -9,12 +9,11 @@ class RecipesController < ApplicationController
     @query = params[:query]
     if @query.present?
       sql_query = " \
-        user = :user AND \
-        (name @@ :query \
+        name @@ :query \
         OR season @@ :query \
-        OR category @@ :query) \
+        OR category @@ :query \
       "
-      @recipes = Recipe.where(sql_query, { user: current_user, query: @query })
+      @recipes = Recipe.where(user: current_user).where(sql_query, query: "%#{@query}%")
     else
       @recipes = Recipe.where(user: current_user)
     end
