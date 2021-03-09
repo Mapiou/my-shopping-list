@@ -2,11 +2,11 @@
               method: :get,
               class: "form-inline flex-nowrap mb-4 mb-lg-0" do
 %>
-  <%= text_field_tag :query,
-    params[:query],
-    value: "",
-    class: "form-control",
-    placeholder: "Ex : poulet, hiver..."
+  <%= text_field_tag  :query,
+                      params[:query],
+                      value: "",
+                      class: "form-control",
+                      placeholder: "Ex : poulet, hiver..."
   %>
   <%= button_tag type: "submit", class: "btn btn-danger" do %>
       <i class="fas fa-search"></i>

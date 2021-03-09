@@ -5,7 +5,8 @@
               flex-column
               flex-lg-row
               justify-content-lg-between
-              align-items-lg-center">
+              align-items-lg-center"
+  >
     <div class="h-deco-left">
       <h1>Mes recettes</h1>
       <p>
@@ -35,13 +36,14 @@
           class="card h-100"
           id="recipe-<%= recipe.id %>"
         >
-          <%= link_to cl_image_tag( "#{recipe.photo.key}",
-                                    width: 600,
-                                    aspect_ratio: 1.5,
-                                    crop: :fill,
-                                    quality: :auto,
-                                    fetch_format: :auto,
-                                    class: "card-img-top"
+          <%= link_to cl_image_tag(
+                        "#{recipe.photo.key}",
+                        width: 600,
+                        aspect_ratio: 1.5,
+                        crop: :fill,
+                        quality: :auto,
+                        fetch_format: :auto,
+                        class: "card-img-top"
                       ),
                       "#",
                       data: {
