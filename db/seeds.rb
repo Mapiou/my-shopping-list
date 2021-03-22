@@ -15,7 +15,7 @@ User.destroy_all
 puts "########## Database cleaned! ##########"
 
 puts "########## Creating users... ##########"
-mapiou = User.create!(email: ENV['MAPIOU_EMAIL'], password: ENV['MAPIOU_PWD'])
+example = User.create!(email: ENV['EXAMPLE_EMAIL'], password: ENV['EXAMPLE_PWD'])
 puts "########## Users created! ##########"
 
 puts "########## Creating recipes... ##########"
@@ -68,7 +68,7 @@ recipes.each do |attributes|
   recipe.photo.attach(io: File.open(filepath),
                       filename: attributes[:photo],
                       content_type: 'image/jpg')
-  recipe.user = mapiou
+  recipe.user = example
   recipe.save!
   puts "Created #{recipe.name}"
 end
@@ -81,7 +81,7 @@ ingredients = JSON.parse(serialized_ingredients)
 
 ingredients.each do |attributes|
   ingredient = Ingredient.new(attributes)
-  ingredient.user = mapiou
+  ingredient.user = example
   ingredient.save!
   puts "Created #{ingredient.name}"
 end
