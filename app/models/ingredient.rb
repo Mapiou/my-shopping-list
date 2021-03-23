@@ -4,6 +4,6 @@ class Ingredient < ApplicationRecord
   has_many :doses
   belongs_to :user
 
-  validates :name, uniqueness: true, presence: true
+  validates :name, uniqueness: { scope: :user }, presence: true
   validates :section, inclusion: { in: SECTIONS }
 end
