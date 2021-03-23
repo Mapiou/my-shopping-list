@@ -225,7 +225,7 @@ doses = [
     unit: "g"
   },
   {
-    name: "Echalote",
+    name: "Échalote",
     quantity: 0.5,
     unit: "pièce"
   },
@@ -337,7 +337,7 @@ doses = [
     unit: "g"
   },
   {
-    name: "Echalote",
+    name: "Échalote",
     quantity: 0.5,
     unit: "pièce"
   },
